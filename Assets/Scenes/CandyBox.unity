@@ -123,6 +123,24 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &109507862 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2174103287971120232, guid: 12c863f598e484e018370a489d73b977, type: 3}
+  m_PrefabInstance: {fileID: 678770319}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &109507869
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 109507862}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1902f2b268bc44ac9ea0508c5a5f293, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerCandy: 0
 --- !u!1 &426348241
 GameObject:
   m_ObjectHideFlags: 0
@@ -326,6 +344,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1879579456}
     - target: {fileID: 47241348569698120, guid: 12c863f598e484e018370a489d73b977, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 47241348569698120, guid: 12c863f598e484e018370a489d73b977, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: MoveToScene
       objectReference: {fileID: 0}
@@ -369,6 +391,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 2093724016}
+    - target: {fileID: 47241348569698123, guid: 12c863f598e484e018370a489d73b977, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 47241348569698123, guid: 12c863f598e484e018370a489d73b977, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: MoveToScene
