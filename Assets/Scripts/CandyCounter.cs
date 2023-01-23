@@ -42,6 +42,7 @@ public class CandyCounter : MonoBehaviour
     void Update()
     {
         // Changes the text to Candies: <candies>
+        
         candyText.text = "Candies: " + candy;
     }
 }

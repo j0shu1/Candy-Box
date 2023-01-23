@@ -7,6 +7,9 @@ using TMPro;
 public class CandyPouch : MonoBehaviour
 {
     public TextMeshProUGUI candyText;
+    void Start(){
+        candyText.text = "Candies: " + CandyCounter.instance.GetCandy();
+    }
     void Update()
     {
         // Changes the text to Candies: <candies>

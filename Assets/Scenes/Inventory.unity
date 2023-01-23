@@ -550,7 +550,7 @@ MonoBehaviour:
   m_Options:
     m_Options:
     - m_Text: None
-      m_Image: {fileID: 0}
+      m_Image: {fileID: 21300000, guid: 2366fdae57a7ba14fa2d119862b40dd5, type: 3}
     - m_Text: Wood Sword
       m_Image: {fileID: 21300000, guid: 15d8ba1d11ed8c941b9676432344c5c9, type: 3}
     - m_Text: Iron Sword
