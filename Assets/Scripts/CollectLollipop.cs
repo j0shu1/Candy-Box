@@ -1,10 +1,8 @@
-using System.Runtime.CompilerServices;
-using TMPro;
 using UnityEngine;
 
 public class CollectLollipop: MonoBehaviour
 {
-    private Lollipops lollipops;
+    private Lollipops lollipops = Lollipops.Instance;
     private GameObject thisLollipop;
     private void Awake()
     {
