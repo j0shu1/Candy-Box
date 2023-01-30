@@ -282,6 +282,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   EatButton: {fileID: 1303541454}
+  featureBar: {fileID: 109507862}
 --- !u!4 &247842201
 Transform:
   m_ObjectHideFlags: 0
@@ -706,7 +707,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_BackGroundColor: {r: 1, g: 1, b: 1, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -1011,6 +1012,10 @@ PrefabInstance:
     - target: {fileID: 2174103287971120232, guid: 12c863f598e484e018370a489d73b977, type: 3}
       propertyPath: m_Name
       value: Feature Bar 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2174103287971120232, guid: 12c863f598e484e018370a489d73b977, type: 3}
+      propertyPath: m_TagString
+      value: FeatureBar
       objectReference: {fileID: 0}
     - target: {fileID: 2174103287971120233, guid: 12c863f598e484e018370a489d73b977, type: 3}
       propertyPath: m_RootOrder
@@ -1727,6 +1732,7 @@ GameObject:
   - component: {fileID: 1303541458}
   - component: {fileID: 1303541457}
   - component: {fileID: 1303541460}
+  - component: {fileID: 1303541461}
   m_Layer: 5
   m_Name: EatAllCandies
   m_TagString: Untagged
@@ -1811,6 +1817,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 1
+      - m_Target: {fileID: 1303541461}
+        m_TargetAssemblyTypeName: showFeatureBar, Assembly-CSharp
+        m_MethodName: ShowBar
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1303541458
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1863,6 +1881,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   totalCandyEaten: 0
   candyEatenText: {fileID: 1331782132}
+--- !u!114 &1303541461
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1303541454}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d36bc128c3cc5ed42b2548c0eaae1f5c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1331782130
 GameObject:
   m_ObjectHideFlags: 0
@@ -2593,7 +2623,7 @@ RectTransform:
   m_GameObject: {fileID: 2065793956}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.25, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 91674965}
@@ -2601,8 +2631,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -47.984993, y: 263.8151}
-  m_SizeDelta: {x: 27.4667, y: 44.989}
+  m_AnchoredPosition: {x: -46.862087, y: 279.3411}
+  m_SizeDelta: {x: 110.2379, y: 19.337}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2065793959
 MonoBehaviour:
@@ -2651,14 +2681,14 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 7
-  m_fontSizeBase: 7
+  m_fontSize: 16
+  m_fontSizeBase: 16
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 12
   m_fontSizeMax: 18
   m_fontStyle: 0
-  m_HorizontalAlignment: 2
+  m_HorizontalAlignment: 1
   m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0

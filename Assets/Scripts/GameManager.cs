@@ -1,16 +1,17 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
     public GameObject EatButton;
+    public GameObject featureBar;
     
     // Start is called before the first frame update
     void Start()
     {
         // Hide the eat candies button at the start
         EatButton.SetActive(false);
+        // Also hide the feature bar
+        featureBar.SetActive(false);
     }
 
     // Update is called once per frame
