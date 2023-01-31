@@ -2,13 +2,7 @@ using UnityEngine;
 
 public class showFeatureBar : MonoBehaviour
 {
-    private GameObject featureBar;
-
-    private void Start()
-    {
-        featureBar = GameObject.FindGameObjectWithTag("FeatureBar");
-    }
-
+    public GameObject featureBar;
     public void ShowBar()
     {
         featureBar.SetActive(true);

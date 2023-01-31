@@ -6,7 +6,6 @@ TagManager:
   tags:
   - Lollipop
   - LollipopTextBox
-  - FeatureBar
   layers:
   - Default
   - TransparentFX

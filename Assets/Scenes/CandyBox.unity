@@ -1015,7 +1015,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2174103287971120232, guid: 12c863f598e484e018370a489d73b977, type: 3}
       propertyPath: m_TagString
-      value: FeatureBar
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 2174103287971120233, guid: 12c863f598e484e018370a489d73b977, type: 3}
       propertyPath: m_RootOrder
@@ -1893,6 +1893,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d36bc128c3cc5ed42b2548c0eaae1f5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  featureBar: {fileID: 109507862}
 --- !u!1 &1331782130
 GameObject:
   m_ObjectHideFlags: 0
