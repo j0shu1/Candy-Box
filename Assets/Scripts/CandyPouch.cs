@@ -8,11 +8,11 @@ public class CandyPouch : MonoBehaviour
 {
     public TextMeshProUGUI candyText;
     void Start(){
-        candyText.text = "Candies: " + CandyCounter.instance.GetCandy();
+        candyText.text = "Candies: " + GameManager.Instance.GetCandy();
     }
     void Update()
     {
         // Changes the text to Candies: <candies>
-        candyText.text = "Candies: " + CandyCounter.instance.GetCandy();
+        candyText.text = "Candies: " + GameManager.Instance.GetCandy();
     }
 }
