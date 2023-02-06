@@ -6,7 +6,7 @@ using TMPro;
 
 public class EatCandies : MonoBehaviour
 {
-    public int totalCandyEaten;
+    public int candyEaten;
     public TextMeshProUGUI candyEatenText;
     public GameObject EatButton;
 
@@ -18,9 +18,15 @@ public class EatCandies : MonoBehaviour
 
     void Update()
     {
-        if (GameManager.Instance.GetCandy() >= 10)
+        if (GameManager.Instance.GetCandy() >= 10 || GameManager.Instance.EatCandyScript == true)
         {
+            GameManager.Instance.EatCandyScript = true;
             EatButton.SetActive(true);
+            if (GameManager.Instance.GetTotalCandyEaten() > 0)
+            {
+                // Displays the total candy you've eaten
+                candyEatenText.text = "You've eaten " + GameManager.Instance.GetTotalCandyEaten() + " candies.";
+            }
         }
     }
 
@@ -29,12 +35,7 @@ public class EatCandies : MonoBehaviour
         // Can only eat candy if you have at least 1
         if (GameManager.Instance.GetCandy() > 0)
         {
-            // Adds current candy total to totalCandyEaten
-            totalCandyEaten += GameManager.Instance.GetCandy();
-            // Resets candy total
-            GameManager.Instance.ResetCandy();
-            // Displays the total candy you've eaten
-            candyEatenText.text = "You've eaten " + totalCandyEaten + " candies.";
+            GameManager.Instance.EatCandies();
         }
     }
 

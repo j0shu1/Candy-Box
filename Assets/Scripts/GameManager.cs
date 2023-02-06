@@ -12,6 +12,9 @@ public class GameManager : MonoBehaviour
     public GameObject featureBar;
     
     public int candy; // Might want to make this long in case of integer overflow, but int should suffice
+    public int totalCandyEaten;
+
+    public bool EatCandyScript; // Unsure if this is the best way to keep the EatCandy button visible despite scene changes
 
     private void Awake()
     {
@@ -54,5 +57,16 @@ public class GameManager : MonoBehaviour
     public void ResetCandy()
     {
         candy = 0;
+    }
+
+    public void EatCandies()
+    {
+        totalCandyEaten += GetCandy();
+        ResetCandy();
+    }
+    
+    public int GetTotalCandyEaten()
+    {
+        return totalCandyEaten;
     }
 }
