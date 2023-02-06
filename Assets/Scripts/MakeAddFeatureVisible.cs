@@ -3,12 +3,11 @@ using UnityEngine;
 public class MakeAddFeatureVisible : MonoBehaviour
 {
     public GameObject AddFeatureButton;
-    public GameObject FeatureBar;
+    private GameManager gameManager;
     private int candyCount;
     void Start()
     {
-        FeatureBar.SetActive(false);
-        AddFeatureButton.SetActive(false);
+        gameManager = GameManager.Instance;
     }
 
     void Update()
@@ -16,6 +15,6 @@ public class MakeAddFeatureVisible : MonoBehaviour
         candyCount = GameManager.Instance.GetCandy();
 
         if (candyCount >= 30)
-            AddFeatureButton.SetActive(true);
+            gameManager.EnableAddFeatureButton();
     }
 }
