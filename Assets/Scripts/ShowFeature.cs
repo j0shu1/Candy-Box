@@ -9,7 +9,6 @@ public class ShowFeature : MonoBehaviour
     private string GenericMessage = "Request a new feature from the developer ";
 
     public TextMeshProUGUI AddFeatureText;
-    public GameObject featureBar;
     public GameObject saveButton;
     public GameObject healthBar;
     public GameObject mapButton;
@@ -32,7 +31,7 @@ public class ShowFeature : MonoBehaviour
             case 0:
                 AddFeatureText.text = GenericMessage + "(cost: TEST candies)";
                 gameManager.SpendCandy(30);
-                featureBar.SetActive(true);
+                gameManager.EnableFeatureBar();
                 healthBar.SetActive(false);
                 mapButton.SetActive(false);
                 addFeatureButton.SetActive(false);

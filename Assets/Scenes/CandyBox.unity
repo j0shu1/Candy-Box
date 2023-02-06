@@ -315,7 +315,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e2cc5549d8c6f354ca8a165541e574dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  candy: 0
+  AddFeatureButton: {fileID: 1323202077}
+  FeatureBar: {fileID: 109507862}
   totalCandyEaten: 0
   EatCandyScript: 0
 --- !u!4 &247842201
@@ -2172,7 +2173,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AddFeatureText: {fileID: 1282191842}
-  featureBar: {fileID: 109507862}
   saveButton: {fileID: 794301029}
   healthBar: {fileID: 0}
   mapButton: {fileID: 1174555789}
@@ -2478,7 +2478,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AddFeatureButton: {fileID: 1323202077}
-  FeatureBar: {fileID: 109507862}
 --- !u!1 &1789245117
 GameObject:
   m_ObjectHideFlags: 0

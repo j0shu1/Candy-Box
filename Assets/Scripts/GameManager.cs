@@ -7,9 +7,11 @@ Any code that doesn't should simply reference the GameManager object. (e.g. Game
 
 public class GameManager : MonoBehaviour
 {
+    public GameObject AddFeatureButton;
+    public GameObject FeatureBar;
     public static GameManager Instance;
     
-    public int candy; // Might want to make this long in case of integer overflow, but int should suffice
+    private int candy; // Might want to make this long in case of integer overflow, but int should suffice
     public int totalCandyEaten;
 
     public bool EatCandyScript; // Unsure if this is the best way to keep the EatCandy button visible despite scene changes
@@ -28,7 +30,9 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        candy = 0;
+        AddFeatureButton.SetActive(false);
+        FeatureBar.SetActive(false);
+        candy = 28;
         // Calls AddCandy() after 0 seconds, every 1 second
         InvokeRepeating("AddCandy", 0.0f, 1.0f);
     }
@@ -64,4 +68,14 @@ public class GameManager : MonoBehaviour
     {
         candy -= amount;
     }
+
+    public void EnableFeatureBar()
+    {
+        FeatureBar.SetActive(true);
+    }
+    public void EnableAddFeatureButton()
+    {
+        AddFeatureButton.SetActive(true);
+    }
+
 }
