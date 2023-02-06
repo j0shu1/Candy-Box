@@ -10,7 +10,7 @@ public class ShowFeature : MonoBehaviour
 
     public TextMeshProUGUI AddFeatureText;
     public GameObject saveButton;
-    public GameObject healthBar;
+    //public GameObject healthBar;
     public GameObject mapButton;
     public GameObject addFeatureButton;
     public GameObject inventoryButton;
@@ -32,7 +32,7 @@ public class ShowFeature : MonoBehaviour
                 AddFeatureText.text = GenericMessage + "(cost: TEST candies)";
                 gameManager.SpendCandy(30);
                 gameManager.EnableFeatureBar();
-                healthBar.SetActive(false);
+                //healthBar.SetActive(false);
                 mapButton.SetActive(false);
                 addFeatureButton.SetActive(false);
                 inventoryButton.SetActive(false);
@@ -42,7 +42,7 @@ public class ShowFeature : MonoBehaviour
                 saveButton.SetActive(true);
                 break;
             case 2:
-                healthBar.SetActive(true);
+                //healthBar.SetActive(true);
                 break;
             case 3:
                 mapButton.SetActive(true);
