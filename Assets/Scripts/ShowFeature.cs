@@ -33,7 +33,11 @@ public class ShowFeature : MonoBehaviour
                 AddFeatureText.text = GenericMessage + "(cost: TEST candies)";
                 gameManager.SpendCandy(30);
 <<<<<<< HEAD
+<<<<<<< HEAD
                 gameManager.EnableFeatureBar();
+=======
+                featureBar.SetActive(true);
+>>>>>>> parent of 24332f9 (healthbar)
 =======
                 featureBar.SetActive(true);
 >>>>>>> parent of 24332f9 (healthbar)
