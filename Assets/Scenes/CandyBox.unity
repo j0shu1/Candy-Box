@@ -460,16 +460,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
 <<<<<<< HEAD
-<<<<<<< HEAD
   playerCandy: 0
 --- !u!1 &238954381
 GameObject:
 =======
   candy: 0
-=======
-  AddFeatureButton: {fileID: 1323202077}
-  FeatureBar: {fileID: 109507862}
->>>>>>> afbd8e7e69de67c0421b41698daae703f4e32214
   totalCandyEaten: 0
   EatCandyScript: 0
 --- !u!4 &247842201
@@ -2598,6 +2593,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AddFeatureText: {fileID: 1282191842}
+  featureBar: {fileID: 109507862}
   saveButton: {fileID: 794301029}
   healthBar: {fileID: 0}
   mapButton: {fileID: 1174555789}
@@ -2903,6 +2899,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AddFeatureButton: {fileID: 1323202077}
+  FeatureBar: {fileID: 109507862}
 --- !u!1 &1789245117
 GameObject:
   m_ObjectHideFlags: 0
