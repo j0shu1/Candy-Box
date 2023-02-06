@@ -1,8 +1,14 @@
+using TMPro;
 using UnityEngine;
 
 public class ShowFeature : MonoBehaviour
 {
-    private int _progress;
+    private int Progress;
+    private int candyCount;
+    private GameManager gameManager;
+    private string GenericMessage = "Request a new feature from the developer ";
+
+    public TextMeshProUGUI AddFeatureText;
     public GameObject featureBar;
     public GameObject saveButton;
     public GameObject healthBar;
@@ -13,13 +19,19 @@ public class ShowFeature : MonoBehaviour
 
     public void Start()
     {
-        featureBar.SetActive(false);
+        gameManager = GameManager.Instance;
+    }
+    public void Update()
+    {
+        candyCount = gameManager.GetCandy();
     }
     public void ApplyFeature()
     {
-        switch (_progress)
+        switch (Progress)
         {
             case 0:
+                AddFeatureText.text = GenericMessage + "(cost: TEST candies)";
+                gameManager.SpendCandy(30);
                 featureBar.SetActive(true);
                 healthBar.SetActive(false);
                 mapButton.SetActive(false);
@@ -46,6 +58,6 @@ public class ShowFeature : MonoBehaviour
             default:
                 break;
         }
-        _progress++;
+        Progress++;
     }
 }

@@ -328,8 +328,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e2cc5549d8c6f354ca8a165541e574dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  addFeatureButton: {fileID: 1323202077}
-  featureBar: {fileID: 109507862}
   candy: 0
 --- !u!4 &247842201
 Transform:
@@ -2150,7 +2148,7 @@ CanvasRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1323202077}
-  m_CullTransparentMesh: 1
+  m_CullTransparentMesh: 0
 --- !u!224 &1323202082
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2184,6 +2182,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d36bc128c3cc5ed42b2548c0eaae1f5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AddFeatureText: {fileID: 1282191842}
   featureBar: {fileID: 109507862}
   saveButton: {fileID: 794301029}
   healthBar: {fileID: 0}
@@ -2338,6 +2337,7 @@ GameObject:
   - component: {fileID: 1618084190}
   - component: {fileID: 1618084189}
   - component: {fileID: 1618084191}
+  - component: {fileID: 1618084192}
   m_Layer: 5
   m_Name: Candies
   m_TagString: Untagged
@@ -2476,6 +2476,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   candy: 0
   candyText: {fileID: 1618084189}
+--- !u!114 &1618084192
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1618084186}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ce577131a2c3f64c92436362f7b2ec6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AddFeatureButton: {fileID: 1323202077}
+  FeatureBar: {fileID: 109507862}
 --- !u!1 &1789245117
 GameObject:
   m_ObjectHideFlags: 0

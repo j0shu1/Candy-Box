@@ -8,8 +8,6 @@ Any code that doesn't should simply reference the GameManager object. (e.g. Game
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
-    public GameObject addFeatureButton;
-    public GameObject featureBar;
     
     public int candy; // Might want to make this long in case of integer overflow, but int should suffice
     public int totalCandyEaten;
@@ -30,19 +28,11 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        addFeatureButton.SetActive(false);
-
         candy = 0;
         // Calls AddCandy() after 0 seconds, every 1 second
         InvokeRepeating("AddCandy", 0.0f, 1.0f);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        if (GetCandy() >= 30)
-            addFeatureButton.SetActive(true);
-    }
 
     void AddCandy()
     {
@@ -68,5 +58,10 @@ public class GameManager : MonoBehaviour
     public int GetTotalCandyEaten()
     {
         return totalCandyEaten;
+    }
+
+    public void SpendCandy(int amount)
+    {
+        candy -= amount;
     }
 }
