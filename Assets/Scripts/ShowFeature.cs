@@ -35,7 +35,11 @@ public class ShowFeature : MonoBehaviour
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                 gameManager.EnableFeatureBar();
+=======
+                featureBar.SetActive(true);
+>>>>>>> parent of 24332f9 (healthbar)
 =======
                 featureBar.SetActive(true);
 >>>>>>> parent of 24332f9 (healthbar)
