@@ -258,7 +258,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8604e84c748c514f8f56fe24458264e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  totalCandyEaten: 0
+  candyEaten: 0
   candyEatenText: {fileID: 1331782132}
   EatButton: {fileID: 1303541454}
 --- !u!4 &93561396
@@ -286,19 +286,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2174103287971120233, guid: 12c863f598e484e018370a489d73b977, type: 3}
   m_PrefabInstance: {fileID: 678770319}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &109507872
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 109507862}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b1902f2b268bc44ac9ea0508c5a5f293, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerCandy: 0
 --- !u!1 &247842199
 GameObject:
   m_ObjectHideFlags: 0
@@ -329,6 +316,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   candy: 0
+  totalCandyEaten: 0
+  EatCandyScript: 0
 --- !u!4 &247842201
 Transform:
   m_ObjectHideFlags: 0
