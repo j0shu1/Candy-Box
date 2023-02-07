@@ -8,6 +8,11 @@ TagManager:
   - LollipopTextBox
   - FeatureBar
   - AddFeatureButton
+  - SaveButton
+  - MapButton
+  - FarmButton
+  - InventoryButton
+  - CandyBoxButton
   layers:
   - Default
   - TransparentFX

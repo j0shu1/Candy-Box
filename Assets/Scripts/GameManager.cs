@@ -11,6 +11,11 @@ public class GameManager : MonoBehaviour
 {
     private GameObject AddFeatureButton;
     private GameObject FeatureBar;
+    private GameObject CandyBoxButton;
+    private GameObject InventoryButton;
+    private GameObject FarmButton;
+    private GameObject MapButton;
+    private GameObject SaveButton;
     public static GameManager Instance;
     
     private int candy; // Might want to make this long in case of integer overflow, but int should suffice
@@ -34,8 +39,13 @@ public class GameManager : MonoBehaviour
     {
         AddFeatureButton = GameObject.FindGameObjectWithTag("AddFeatureButton");
         FeatureBar = GameObject.FindGameObjectWithTag("FeatureBar");
-        AddFeatureButton.SetActive(false);
-        FeatureBar.SetActive(false);
+        InventoryButton = GameObject.FindGameObjectWithTag("InventoryButton");
+        FarmButton = GameObject.FindGameObjectWithTag("FarmButton");
+        MapButton = GameObject.FindGameObjectWithTag("MapButton");
+        SaveButton = GameObject.FindGameObjectWithTag("SaveButton");
+
+        DisableFeatures();
+
         candy = 28;
         // Calls AddCandy() after 0 seconds, every 1 second
         InvokeRepeating("AddCandy", 0.0f, 1.0f);
@@ -87,4 +97,13 @@ public class GameManager : MonoBehaviour
         AddFeatureButton.SetActive(true);
     }
 
+    private void DisableFeatures()
+    {
+        AddFeatureButton.SetActive(false);
+        FeatureBar.SetActive(false);
+        InventoryButton.SetActive(false);
+        FarmButton.SetActive(false);
+        MapButton.SetActive(false);
+        SaveButton.SetActive(false);
+    }
 }

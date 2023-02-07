@@ -150,7 +150,7 @@ GameObject:
   - component: {fileID: 7761336438435435825}
   m_Layer: 5
   m_Name: Save Button (4)
-  m_TagString: Untagged
+  m_TagString: SaveButton
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -808,7 +808,7 @@ GameObject:
   - component: {fileID: 7761336439203904156}
   m_Layer: 5
   m_Name: 'Lollipop farm Button '
-  m_TagString: Untagged
+  m_TagString: FarmButton
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1102,7 +1102,7 @@ GameObject:
   - component: {fileID: 7761336439383975009}
   m_Layer: 5
   m_Name: Text (TMP)
-  m_TagString: Untagged
+  m_TagString: MapButton
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1239,7 +1239,7 @@ GameObject:
   - component: {fileID: 7761336439568134633}
   m_Layer: 5
   m_Name: CandyBox Button
-  m_TagString: Untagged
+  m_TagString: CandyBoxButton
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1386,7 +1386,7 @@ GameObject:
   - component: {fileID: 7761336440166222809}
   m_Layer: 5
   m_Name: Map Button (3)
-  m_TagString: Untagged
+  m_TagString: MapButton
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1533,7 +1533,7 @@ GameObject:
   - component: {fileID: 7761336440258679873}
   m_Layer: 5
   m_Name: 'InventoryButton '
-  m_TagString: Untagged
+  m_TagString: InventoryButton
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
