@@ -1,4 +1,6 @@
+using System.Diagnostics;
 using UnityEngine;
+using UnityEngine.Assertions;
 
 /* 
 This script will run across all scenes. As such, please only include code that will exist for every scene. 
@@ -66,9 +68,14 @@ public class GameManager : MonoBehaviour
         return totalCandyEaten;
     }
 
-    public void SpendCandy(int amount)
+    public bool SpendCandy(int amount)
     {
-        candy -= amount;
+        if (candy - amount > 0)
+        {
+            candy -= amount;
+            return true;
+        }
+        else { return false; }
     }
 
     public void EnableFeatureBar()

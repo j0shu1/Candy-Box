@@ -3,18 +3,11 @@ using UnityEngine;
 
 public class ShowFeature : MonoBehaviour
 {
-    private int Progress;
     private int candyCount;
     private GameManager gameManager;
     private string GenericMessage = "Request a new feature from the developer ";
 
     public TextMeshProUGUI AddFeatureText;
-    public GameObject saveButton;
-    public GameObject healthBar;
-    public GameObject mapButton;
-    public GameObject addFeatureButton;
-    public GameObject inventoryButton;
-    public GameObject lollipopFarmButton;
 
     public void Start()
     {
@@ -26,37 +19,11 @@ public class ShowFeature : MonoBehaviour
     }
     public void ApplyFeature()
     {
-        switch (Progress)
-        {
-            case 0:
-                AddFeatureText.text = GenericMessage + "(cost: TEST candies)";
-                gameManager.SpendCandy(30);
-                gameManager.EnableFeatureBar();
-                healthBar.SetActive(false);
-                mapButton.SetActive(false);
-                addFeatureButton.SetActive(false);
-                inventoryButton.SetActive(false);
-                lollipopFarmButton.SetActive(false);
-                break;
-            case 1:
-                saveButton.SetActive(true);
-                break;
-            case 2:
-                healthBar.SetActive(true);
-                break;
-            case 3:
-                mapButton.SetActive(true);
-                addFeatureButton.SetActive(false);
-                break;
-            case 4:
-                inventoryButton.SetActive(true);
-                break;
-            case 5:
-                lollipopFarmButton.SetActive(true);
-                break;
-            default:
-                break;
+        if (gameManager.SpendCandy(30)) // If this amount can be spent
+        { 
+            AddFeatureText.text = GenericMessage + "(cost: TEST candies)";
+            gameManager.SpendCandy(30);
+            gameManager.EnableFeatureBar();
         }
-        Progress++;
     }
 }
