@@ -13,6 +13,7 @@ TagManager:
   - FarmButton
   - InventoryButton
   - CandyBoxButton
+  - HealthBar
   layers:
   - Default
   - TransparentFX

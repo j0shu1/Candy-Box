@@ -1,6 +1,5 @@
-using System.Diagnostics;
+using TMPro;
 using UnityEngine;
-using UnityEngine.Assertions;
 
 /* 
 This script will run across all scenes. As such, please only include code that will exist for every scene. 
@@ -11,13 +10,19 @@ public class GameManager : MonoBehaviour
 {
     private GameObject AddFeatureButton;
     private GameObject FeatureBar;
-    private GameObject CandyBoxButton;
+    private GameObject SaveButton;
+    private GameObject HealthBar;
     private GameObject InventoryButton;
     private GameObject FarmButton;
     private GameObject MapButton;
-    private GameObject SaveButton;
+
+    private TextMeshProUGUI FeatureBarText;
+
+    private int FeatureCost = 0;
+    private int FeatureProgress = 0;
+
     public static GameManager Instance;
-    
+
     private int candy; // Might want to make this long in case of integer overflow, but int should suffice
     public int totalCandyEaten;
 
@@ -33,17 +38,22 @@ public class GameManager : MonoBehaviour
         Instance = this;
         DontDestroyOnLoad(gameObject);
     }
-    
+
     // Start is called before the first frame update
     void Start()
     {
         AddFeatureButton = GameObject.FindGameObjectWithTag("AddFeatureButton");
         FeatureBar = GameObject.FindGameObjectWithTag("FeatureBar");
+        SaveButton = GameObject.FindGameObjectWithTag("SaveButton");
+        MapButton = GameObject.FindGameObjectWithTag("MapButton");
+        HealthBar = GameObject.FindGameObjectWithTag("HealthBar");
         InventoryButton = GameObject.FindGameObjectWithTag("InventoryButton");
         FarmButton = GameObject.FindGameObjectWithTag("FarmButton");
-        MapButton = GameObject.FindGameObjectWithTag("MapButton");
-        SaveButton = GameObject.FindGameObjectWithTag("SaveButton");
 
+        FeatureBarText = AddFeatureButton.GetComponentInChildren<TextMeshProUGUI>();
+
+        AddFeatureButton.SetActive(false);
+        FeatureBar.SetActive(false);
         DisableFeatures();
 
         candy = 28;
@@ -51,17 +61,12 @@ public class GameManager : MonoBehaviour
         InvokeRepeating("AddCandy", 0.0f, 1.0f);
     }
 
-
-    void AddCandy()
-    {
-        candy += 1;
-    }
-
+    // *********   PUBLIC METHODS     **********
     public int GetCandy()
     {
         return candy;
     }
-    
+
     public void ResetCandy()
     {
         candy = 0;
@@ -72,38 +77,104 @@ public class GameManager : MonoBehaviour
         totalCandyEaten += GetCandy();
         ResetCandy();
     }
-    
+
     public int GetTotalCandyEaten()
     {
         return totalCandyEaten;
     }
-
-    public bool SpendCandy(int amount)
+    public bool CanSpend(int amount)
     {
-        if (candy - amount > 0)
-        {
-            candy -= amount;
-            return true;
-        }
-        else { return false; }
+        return amount <= candy;
+    }
+    public void SpendCandy(int amount)
+    {
+        candy -= amount;
     }
 
-    public void EnableFeatureBar()
+    public int GetFeatureCost()
     {
-        FeatureBar.SetActive(true);
+        return FeatureCost;
     }
+
     public void EnableAddFeatureButton()
     {
         AddFeatureButton.SetActive(true);
     }
 
+
+    public void EnableNextFeature()
+    {
+        switch (FeatureProgress)
+        {
+            case 0:
+                if (CanSpend(30))
+                {
+                    SpendCandy(30);
+                    FeatureBar.SetActive(true);
+                    DisableFeatures();
+                    FeatureBarText.text = "Request another one (5 candies)";
+                    SetFeatureCost(5);
+                    FeatureProgress++;
+                }
+            break;
+            case 1:
+                if (CanSpend(5))
+                {
+                    SpendCandy(5);
+                    SaveButton.SetActive(true);
+                    FeatureBarText.text = "Request for something more exciting (5 candies)";
+                    FeatureProgress++;
+                }
+                break;
+            case 2:
+                if (CanSpend(5))
+                {
+                    SpendCandy(5);
+                    HealthBar.SetActive(true);
+                    FeatureBarText.text = "Final request! This one has to be worth the candies. (10 candies)";
+                    SetFeatureCost(10);
+                    FeatureProgress++;
+                }
+                break;
+            case 3:
+                if (CanSpend(10))
+                {
+                    SpendCandy(10);
+                    MapButton.SetActive(true);
+                    AddFeatureButton.SetActive(false);
+                    FeatureProgress++;
+                }
+                break;
+
+            default:
+                break;
+        }
+    }
+
+
+    // *********   PRIVATE METHODS     **********
+    private void AddCandy()
+    {
+        candy += 1;
+    }
+
     private void DisableFeatures()
     {
-        AddFeatureButton.SetActive(false);
-        FeatureBar.SetActive(false);
+        SaveButton.SetActive(false);
+        MapButton.SetActive(false);
+        HealthBar.SetActive(false);
         InventoryButton.SetActive(false);
         FarmButton.SetActive(false);
-        MapButton.SetActive(false);
-        SaveButton.SetActive(false);
     }
+
+    private void SetFeatureButtonText(string text)
+    {
+        FeatureBarText.text = text;
+    }
+
+    private void SetFeatureCost(int cost)
+    {
+        FeatureCost = cost;
+    }
+
 }
