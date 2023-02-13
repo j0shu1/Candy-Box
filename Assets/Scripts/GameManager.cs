@@ -141,7 +141,7 @@ public class GameManager : MonoBehaviour
                 {
                     SpendCandy(10);
                     MapButton.SetActive(true);
-                    AddFeatureButton.SetActive(false);
+                    Destroy(AddFeatureButton);
                     FeatureProgress++;
                 }
                 break;

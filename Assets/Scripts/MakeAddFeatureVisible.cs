@@ -14,16 +14,19 @@ public class MakeAddFeatureVisible : MonoBehaviour
 
     void Update()
     {
-        candyCount = gameManager.GetCandy();
-        featureCost = gameManager.GetFeatureCost();
+        if (AddFeatureButton != null)
+        {
+            candyCount = gameManager.GetCandy();
+            featureCost = gameManager.GetFeatureCost();
 
-        if (candyCount >= 30)
-            gameManager.EnableAddFeatureButton();
+            if (candyCount >= 30)
+                gameManager.EnableAddFeatureButton();
 
-        if (candyCount >= featureCost)
-            AddFeatureButton.interactable = true;
-        else
-            AddFeatureButton.interactable = false;
+            if (candyCount >= featureCost)
+                AddFeatureButton.interactable = true;
+            else
+                AddFeatureButton.interactable = false;
+        }
 
     }
 }
