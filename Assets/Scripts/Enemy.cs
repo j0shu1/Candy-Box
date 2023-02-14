@@ -13,7 +13,8 @@ public class Enemy : MonoBehaviour
     
     void Start()
     {
-        attack = GameManager.Instance.GetAttack();
+        // attack = GameManager.Instance.GetAttack();
+        attack = 10;
     }
 
     void Update()
