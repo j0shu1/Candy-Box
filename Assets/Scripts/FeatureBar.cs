@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class FeatureBar : MonoBehaviour
@@ -11,10 +12,15 @@ public class FeatureBar : MonoBehaviour
     private GameObject inventoryButton;
     private GameObject farmButton;
     private GameObject mapButton;
+    private TextMeshProUGUI addFeatureButtonText;
 
     // Purchase button components.
     private int candyCount;
     private int featureCost;
+
+    // Integration vars
+    private GameManager gameManager;
+    private int featureProgress;
 
     /// <summary>
     /// Queue of features to be added.
@@ -23,12 +29,15 @@ public class FeatureBar : MonoBehaviour
 
     void Start()
     {
+        gameManager = GameManager.Instance;
+
         // Begin the game with FeatureBar and AddFeatureButton not active.
         featureBar = GameObject.FindGameObjectWithTag("FeatureBar");
         featureBar.SetActive(false);
 
         addFeatureButton = GameObject.FindGameObjectWithTag("AddFeatureButton");
         addFeatureButton.SetActive(false);
+        addFeatureButtonText = addFeatureButton.GetComponent<TextMeshProUGUI>();
 
         // Find and save each component of the FeatureBar to the appropriate variable.
         saveButton = GameObject.FindGameObjectWithTag("SaveButton");
@@ -50,23 +59,69 @@ public class FeatureBar : MonoBehaviour
     /// </summary>
     public void EnableNextFeature()
     {
-        if (FeatureQueue.Count != 0)
+        switch (featureProgress)
         {
-            GameObject nextFeature = FeatureQueue.Dequeue();
-
-            if (nextFeature != healthBar)
-                nextFeature.SetActive(true);
-            else 
-            {
-                // If the feature we are enabling is the HealthBar, also delete the AddFeatureButton.
-                Destroy(addFeatureButton);
-                nextFeature.SetActive(true);
-            }
+            case 0:
+                if (gameManager.CanSpend(30))
+                {
+                    gameManager.SpendCandy(30);
+                    featureBar.SetActive(true);
+                    DisableFeatures();
+                    addFeatureButtonText.text = "Request another one (5 candies)";
+                    SetFeatureCost(5);
+                    featureProgress++;
+                }
+                break;
+            case 1:
+                if (gameManager.CanSpend(5))
+                {
+                    gameManager.SpendCandy(5);
+                    saveButton.SetActive(true);
+                    addFeatureButtonText.text = "Request for something more exciting (5 candies)";
+                    featureProgress++;
+                }
+                break;
+            case 2:
+                if (gameManager.CanSpend(5))
+                {
+                    gameManager.SpendCandy(5);
+                    healthBar.SetActive(true);
+                    addFeatureButtonText.text = "Final request! This one has to be worth the candies. (10 candies)";
+                    SetFeatureCost(10);
+                    featureProgress++;
+                }
+                break;
+            case 3:
+                if (gameManager.CanSpend(10))
+                {
+                    gameManager.SpendCandy(10);
+                    mapButton.SetActive(true);
+                    Destroy(addFeatureButton);
+                    featureProgress++;
+                }
+                break;
+            default:
+                break;
         }
     }
 
-    //public void SpawnFeatureBar(GameObject featureBar = new FeatureBar())
-    //{
-        //Instantiate(featurebar // Add other parameters);
-    //}
+    public void SpawnFeatureBar()
+    {
+        Instantiate(featureBar);
+    }
+
+    public void DeleteFeatureBar()
+    {
+        Destroy(featureBar);
+    }
+
+    private void SetFeatureCost(int cost)
+    {
+        featureCost = cost;
+    }
+
+    private void DisableFeatures()
+    {
+        //TODO implement
+    }
 }
