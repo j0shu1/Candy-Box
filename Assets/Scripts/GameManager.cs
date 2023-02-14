@@ -25,6 +25,7 @@ public class GameManager : MonoBehaviour
 
     private int candy; // Might want to make this long in case of integer overflow, but int should suffice
     public int totalCandyEaten;
+    public int attack = 10; // Just a default value
 
     public bool EatCandyScript; // Unsure if this is the best way to keep the EatCandy button visible despite scene changes
 
@@ -89,6 +90,14 @@ public class GameManager : MonoBehaviour
     public void SpendCandy(int amount)
     {
         candy -= amount;
+    }
+    public void SetAttack(int number)
+    {
+        attack = number;
+    }
+    public int GetAttack()
+    {
+        return attack;
     }
 
     public int GetFeatureCost()
