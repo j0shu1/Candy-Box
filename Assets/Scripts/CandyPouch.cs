@@ -7,12 +7,15 @@ using TMPro;
 public class CandyPouch : MonoBehaviour
 {
     public TextMeshProUGUI candyText;
+    private GameManager gameManager;
+
     void Start(){
-        candyText.text = "Candies: " + GameManager.Instance.GetCandy();
+        gameManager = GameManager.Instance;
+        candyText.text = "Candies: " + gameManager.candy.GetCandy();
     }
     void Update()
     {
         // Changes the text to Candies: <candies>
-        candyText.text = "Candies: " + GameManager.Instance.GetCandy();
+        candyText.text = "Candies: " + gameManager.candy.GetCandy();
     }
 }

@@ -22,10 +22,8 @@ public class GameManager : MonoBehaviour
     private int FeatureProgress = 0;
 
     public static GameManager Instance;
-
-    private int candy; // Might want to make this long in case of integer overflow, but int should suffice
-    public int totalCandyEaten;
-    public int attack = 10; // Just a default value
+    public Player player = new Player(); // not sure how to fix
+    public Candy candy = new Candy();
 
     public bool EatCandyScript; // Unsure if this is the best way to keep the EatCandy button visible despite scene changes
 
@@ -56,49 +54,9 @@ public class GameManager : MonoBehaviour
         AddFeatureButton.SetActive(false);
         FeatureBar.SetActive(false);
         DisableFeatures();
-
-        candy = 28;
-        // Calls AddCandy() after 0 seconds, every 1 second
-        InvokeRepeating("AddCandy", 0.0f, 1.0f);
     }
 
     // *********   PUBLIC METHODS     **********
-    public int GetCandy()
-    {
-        return candy;
-    }
-
-    public void ResetCandy()
-    {
-        candy = 0;
-    }
-
-    public void EatCandies()
-    {
-        totalCandyEaten += GetCandy();
-        ResetCandy();
-    }
-
-    public int GetTotalCandyEaten()
-    {
-        return totalCandyEaten;
-    }
-    public bool CanSpend(int amount)
-    {
-        return amount <= candy;
-    }
-    public void SpendCandy(int amount)
-    {
-        candy -= amount;
-    }
-    public void SetAttack(int number)
-    {
-        attack = number;
-    }
-    public int GetAttack()
-    {
-        return attack;
-    }
 
     public int GetFeatureCost()
     {
@@ -110,15 +68,14 @@ public class GameManager : MonoBehaviour
         AddFeatureButton.SetActive(true);
     }
 
-
     public void EnableNextFeature()
     {
         switch (FeatureProgress)
         {
             case 0:
-                if (CanSpend(30))
+                if (candy.CanSpend(30))
                 {
-                    SpendCandy(30);
+                    candy.SpendCandy(30);
                     FeatureBar.SetActive(true);
                     DisableFeatures();
                     FeatureBarText.text = "Request another one (5 candies)";
@@ -127,18 +84,18 @@ public class GameManager : MonoBehaviour
                 }
             break;
             case 1:
-                if (CanSpend(5))
+                if (candy.CanSpend(5))
                 {
-                    SpendCandy(5);
+                    candy.SpendCandy(5);
                     SaveButton.SetActive(true);
                     FeatureBarText.text = "Request for something more exciting (5 candies)";
                     FeatureProgress++;
                 }
                 break;
             case 2:
-                if (CanSpend(5))
+                if (candy.CanSpend(5))
                 {
-                    SpendCandy(5);
+                    candy.SpendCandy(5);
                     HealthBar.SetActive(true);
                     FeatureBarText.text = "Final request! This one has to be worth the candies. (10 candies)";
                     SetFeatureCost(10);
@@ -146,9 +103,9 @@ public class GameManager : MonoBehaviour
                 }
                 break;
             case 3:
-                if (CanSpend(10))
+                if (candy.CanSpend(10))
                 {
-                    SpendCandy(10);
+                    candy.SpendCandy(10);
                     MapButton.SetActive(true);
                     Destroy(AddFeatureButton);
                     FeatureProgress++;
@@ -162,11 +119,6 @@ public class GameManager : MonoBehaviour
 
 
     // *********   PRIVATE METHODS     **********
-    private void AddCandy()
-    {
-        candy += 1;
-    }
-
     private void DisableFeatures()
     {
         SaveButton.SetActive(false);
