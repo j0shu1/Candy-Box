@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    public int attack = 10; // Just a default value
+    private int attack = 10; // Just a default value
     
     // Start is called before the first frame update
     void Start()

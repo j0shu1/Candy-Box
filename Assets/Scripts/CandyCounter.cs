@@ -19,7 +19,7 @@ public class CandyCounter : MonoBehaviour
     void Update()
     {
         // Changes the text to Candies: <candies>
-        candy = gameManager.candy.GetCandy();
+        candy = gameManager.GetCandy();
         candyText.text = "Candies: " + candy;
     }
 }

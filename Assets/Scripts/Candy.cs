@@ -5,7 +5,7 @@ using UnityEngine;
 public class Candy : MonoBehaviour
 {
     private int candy; // Might want to make this long in case of integer overflow, but int should suffice
-    public int totalCandyEaten;
+    private int totalCandyEaten;
     
     // Start is called before the first frame update
     void Start()
@@ -15,11 +15,6 @@ public class Candy : MonoBehaviour
         InvokeRepeating("AddCandy", 0.0f, 1.0f);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
     // PUBLIC METHODS
 
     public int GetCandy()

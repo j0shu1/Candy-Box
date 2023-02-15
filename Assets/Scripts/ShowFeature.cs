@@ -14,7 +14,7 @@ public class ShowFeature : MonoBehaviour
     }
     public void Update()
     {
-        candyCount = gameManager.candy.GetCandy();
+        candyCount = gameManager.GetCandy();
     }
     public void ApplyFeature()
     {

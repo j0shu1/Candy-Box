@@ -16,7 +16,7 @@ public class MakeAddFeatureVisible : MonoBehaviour
     {
         if (AddFeatureButton != null)
         {
-            candyCount = gameManager.candy.GetCandy();
+            candyCount = gameManager.GetCandy();
             featureCost = gameManager.GetFeatureCost();
 
             if (candyCount >= 30)

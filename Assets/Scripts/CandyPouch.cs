@@ -11,11 +11,11 @@ public class CandyPouch : MonoBehaviour
 
     void Start(){
         gameManager = GameManager.Instance;
-        candyText.text = "Candies: " + gameManager.candy.GetCandy();
+        candyText.text = "Candies: " + gameManager.GetCandy();
     }
     void Update()
     {
         // Changes the text to Candies: <candies>
-        candyText.text = "Candies: " + gameManager.candy.GetCandy();
+        candyText.text = "Candies: " + gameManager.GetCandy();
     }
 }

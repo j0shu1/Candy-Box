@@ -1,9 +1,10 @@
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
 public class FeatureBar : MonoBehaviour
 {
+    // TODO: Add MakeAddFeatureVisible.cs to this script.
+    // TODO: Add ShowFeature.cs to this script.
     // Feature bar components.
     private GameObject featureBar;
     private GameObject addFeatureButton;
@@ -18,26 +19,16 @@ public class FeatureBar : MonoBehaviour
     private int candyCount;
     private int featureCost;
 
-    // Integration vars
     private GameManager gameManager;
     private int featureProgress;
-
-    /// <summary>
-    /// Queue of features to be added.
-    /// </summary>
-    private Queue<GameObject> FeatureQueue { get; }
 
     void Start()
     {
         gameManager = GameManager.Instance;
 
-        // Begin the game with FeatureBar and AddFeatureButton not active.
         featureBar = GameObject.FindGameObjectWithTag("FeatureBar");
-        featureBar.SetActive(false);
-
         addFeatureButton = GameObject.FindGameObjectWithTag("AddFeatureButton");
-        addFeatureButton.SetActive(false);
-        addFeatureButtonText = addFeatureButton.GetComponent<TextMeshProUGUI>();
+        addFeatureButtonText = addFeatureButton.GetComponentInChildren<TextMeshProUGUI>();
 
         // Find and save each component of the FeatureBar to the appropriate variable.
         saveButton = GameObject.FindGameObjectWithTag("SaveButton");
@@ -46,12 +37,28 @@ public class FeatureBar : MonoBehaviour
         farmButton = GameObject.FindGameObjectWithTag("FarmButton");
         mapButton = GameObject.FindGameObjectWithTag("MapButton");
 
-        // Add each FeatureBar component to the FeatureQueue.
-        FeatureQueue.Enqueue(saveButton);
-        FeatureQueue.Enqueue(healthBar);
-        FeatureQueue.Enqueue(inventoryButton);
-        FeatureQueue.Enqueue(farmButton);
-        FeatureQueue.Enqueue(mapButton);
+        featureBar.SetActive(false);
+        addFeatureButton.SetActive(false);
+        DisableFeatures();
+    }
+
+    public void SpawnFeatureBar()
+    {
+        Instantiate(featureBar);
+    }
+
+    public void DeleteFeatureBar()
+    {
+        Destroy(featureBar);
+    }
+
+    public void EnableAddFeatureButton()
+    { 
+        addFeatureButton.SetActive(true);
+    }
+    public int GetFeatureCost()
+    {
+        return featureCost;
     }
 
     /// <summary>
@@ -105,16 +112,7 @@ public class FeatureBar : MonoBehaviour
         }
     }
 
-    public void SpawnFeatureBar()
-    {
-        Instantiate(featureBar);
-    }
-
-    public void DeleteFeatureBar()
-    {
-        Destroy(featureBar);
-    }
-
+    // PRIVATE METHODS
     private void SetFeatureCost(int cost)
     {
         featureCost = cost;
@@ -122,6 +120,10 @@ public class FeatureBar : MonoBehaviour
 
     private void DisableFeatures()
     {
-        //TODO implement
+        saveButton.SetActive(false);
+        mapButton.SetActive(false);
+        healthBar.SetActive(false);
+        inventoryButton.SetActive(false);
+        farmButton.SetActive(false);
     }
 }

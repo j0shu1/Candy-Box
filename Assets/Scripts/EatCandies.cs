@@ -18,14 +18,14 @@ public class EatCandies : MonoBehaviour
 
     void Update()
     {
-        if (GameManager.Instance.candy.GetCandy() >= 10 || GameManager.Instance.EatCandyScript == true)
+        if (GameManager.Instance.GetCandy() >= 10 || GameManager.Instance.EatCandyScript == true)
         {
             GameManager.Instance.EatCandyScript = true;
             EatButton.SetActive(true);
-            if (GameManager.Instance.candy.GetTotalCandyEaten() > 0)
+            if (GameManager.Instance.GetTotalCandyEaten() > 0)
             {
                 // Displays the total candy you've eaten
-                candyEatenText.text = "You've eaten " + GameManager.Instance.candy.GetTotalCandyEaten() + " candies.";
+                candyEatenText.text = "You've eaten " + GameManager.Instance.GetTotalCandyEaten() + " candies.";
             }
         }
     }
@@ -33,9 +33,9 @@ public class EatCandies : MonoBehaviour
     public void EatAllCandies()
     {
         // Can only eat candy if you have at least 1
-        if (GameManager.Instance.candy.GetCandy() > 0)
+        if (GameManager.Instance.GetCandy() > 0)
         {
-            GameManager.Instance.candy.EatCandies();
+            GameManager.Instance.EatCandies();
         }
     }
 
