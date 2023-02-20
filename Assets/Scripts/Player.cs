@@ -5,6 +5,7 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     private int attack = 10; // Just a default value
+    private int weaponSelection = 0; //default weapon selected
     
     // Start is called before the first frame update
     void Start()
@@ -28,5 +29,15 @@ public class Player : MonoBehaviour
     public int GetAttack()
     {
         return attack;
+    }
+
+    // WEAPON SELECTION
+    public void SetWeapon(int number)
+    {
+        weaponSelection = number;
+    }
+    public int GetWeapon()
+    {
+        return weaponSelection;
     }
 }
