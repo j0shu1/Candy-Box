@@ -10,6 +10,8 @@ public class WeaponSelection : MonoBehaviour
     public Dropdown dropdown;
     public List<Sprite> WeaponSprites;
     public Object WeaponSelected;
+    public Sprite WeaponCurrent;
+    //public SpriteRenderer Weapon;
 
     void Start(){
         dropdown = GetComponent<Dropdown>();
@@ -39,19 +41,17 @@ public class WeaponSelection : MonoBehaviour
         //gameManager = GameManager.Instance;
 
         int index = dropdown.value;
-        
         //gameManager.SetWeapon(index);
-
-        //WeaponRend = WeaponSelected.GetComponent<SpriteRenderer>();
         switch(index)
         {
-            case 0: WeaponSelected= WeaponSprites[0]; break;
-            case 1: WeaponSelected = WeaponSprites[1]; break;
-            case 2: WeaponSelected = WeaponSprites[2]; break;
-            case 3: WeaponSelected = WeaponSprites[3]; break;
+            case 0: WeaponCurrent = WeaponSprites[0]; break;
+            case 1: WeaponCurrent = WeaponSprites[1]; break;
+            case 2: WeaponCurrent = WeaponSprites[2]; break;
+            case 3: WeaponCurrent = WeaponSprites[3]; break;
         }
-        
+        //Weapon = WeaponSelected.GetComponent<SpriteRenderer>();
         TextBox.text = dropdown.options[index].text;
+        //Weapon.Sprite = WeaponCurrent;
     }
     void Update()
     {
