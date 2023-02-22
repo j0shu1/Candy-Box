@@ -10,7 +10,7 @@ public class Candy : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        candy = 28;
+        candy = 50;
         // Calls AddCandy() after 0 seconds, every 1 second
         InvokeRepeating("AddCandy", 0.0f, 1.0f);
     }
