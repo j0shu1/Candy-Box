@@ -17,9 +17,6 @@ public class Player : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        // healthBar = GameObject.FindGameObjectWithTag("HealthBar");
-        healthSlider = healthBar.GetComponent<Slider>();
-
         maxHealth = 100;
         currentHealth = maxHealth;
         InvokeRepeating("Regen", 0.0f, 1.0f);
@@ -28,13 +25,23 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+<<<<<<< HEAD
         gameManager = GameManager.Instance;
         healthSlider.value = currentHealth;
+=======
+        if (GameObject.FindGameObjectWithTag("HealthBar") != null)
+        {
+            healthBar = GameObject.FindGameObjectWithTag("HealthBar");
+            healthSlider = healthBar.GetComponent<Slider>();
+            healthSlider.value = currentHealth;
+        }        
+>>>>>>> 217434ec88c4451bdfd30fbc668b4021c74c8678
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
             TakeDamage(10);
         }
+
         if (currentHealth < 0)
         {
             currentHealth = 0;
@@ -55,6 +62,7 @@ public class Player : MonoBehaviour
     {
         attack = number;
     }
+    
     public int GetAttack()
     {
         return attack;
