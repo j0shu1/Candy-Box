@@ -9,11 +9,13 @@ public class Enemy : MonoBehaviour
     public float maxHP;
     public Image HealthBarFill;
     public int attack;
-    
+    private GameManager gameManager;
     
     void Start()
     {
         // attack = GameManager.Instance.GetAttack();
+        //gameManager = GameManager.Instance;
+        //attack = gameManager.GetAttack();
         attack = 10;
     }
 

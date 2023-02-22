@@ -9,6 +9,7 @@ public class Player : MonoBehaviour
     public int currentHealth;
     public GameObject healthBar;
     public Slider healthSlider;
+    private GameManager gameManager;
     
     private int attack = 10; // Just a default value
     private int weaponSelection = 0; //default weapon selected
@@ -27,6 +28,7 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        gameManager = GameManager.Instance;
         healthSlider.value = currentHealth;
 
         if (Input.GetKeyDown(KeyCode.Space))
@@ -36,6 +38,14 @@ public class Player : MonoBehaviour
         if (currentHealth < 0)
         {
             currentHealth = 0;
+        }
+        int WeaponIndex = gameManager.GetWeapon();
+        switch(WeaponIndex)
+        {
+            case 0: SetAttack(1); break;
+            case 1: SetAttack(10); break;
+            case 2: SetAttack(20); break;
+            case 3: SetAttack(30); break;
         }
     }
 
