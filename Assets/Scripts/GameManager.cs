@@ -57,13 +57,13 @@ public class GameManager : MonoBehaviour
 
 
     /*******************************************
-     *           PLAYER WEAPON METHODS
-     *  Makes WEAPON CHOICE accessible to all!
+     *           PLAYER METHODS
+     *  Makes Player accessible to all!
      * 
      *******************************************/
     // Methods that do not return values
     public void SetWeapon(int weaponSelection) { player.SetWeapon(weaponSelection); }
-    
+    public void TakeDamage(int damage) { player.TakeDamage(damage); }
 
     // Methods that return values
     public int GetWeapon() { return player.GetWeapon(); }

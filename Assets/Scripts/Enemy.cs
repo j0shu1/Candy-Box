@@ -14,8 +14,8 @@ public class Enemy : MonoBehaviour
     void Start()
     {
         // attack = GameManager.Instance.GetAttack();
-        //gameManager = GameManager.Instance;
-        //attack = gameManager.GetAttack();
+        //  gameManager = GameManager.Instance;
+        //  attack = gameManager.GetAttack();
         attack = 10;
     }
 
@@ -37,6 +37,7 @@ public class Enemy : MonoBehaviour
     {
         currentHP -= attack;
         HealthBarFill.fillAmount = currentHP / maxHP;
+        GameManager.Instance.TakeDamage(10);
         if (currentHP == 0)
         {
             Destroy(gameObject);
