@@ -1,16 +1,15 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Candy : MonoBehaviour
 {
+    public int startingCandy;
     private int candy; // Might want to make this long in case of integer overflow, but int should suffice
     private int totalCandyEaten;
     
     // Start is called before the first frame update
     void Start()
     {
-        candy = 50;
+        candy = startingCandy;
         // Calls AddCandy() after 0 seconds, every 1 second
         InvokeRepeating("AddCandy", 0.0f, 1.0f);
     }

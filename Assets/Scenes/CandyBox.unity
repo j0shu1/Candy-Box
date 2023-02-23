@@ -230,6 +230,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd78b12607810794fab4c1937d3a03d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  startingCandy: 50
 --- !u!114 &247842203
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -242,6 +243,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27864796b5ce03249b733248e58cf48e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  featureBarPrefab: {fileID: 8475274450644202929, guid: 1320b21855fcb704f927682e066fea1c, type: 3}
 --- !u!114 &247842204
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -795,7 +797,6 @@ GameObject:
   - component: {fileID: 1323202081}
   - component: {fileID: 1323202080}
   - component: {fileID: 1323202079}
-  - component: {fileID: 1323202083}
   m_Layer: 5
   m_Name: Add feature button
   m_TagString: AddFeatureButton
@@ -847,9 +848,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1323202083}
-        m_TargetAssemblyTypeName: ShowFeature, Assembly-CSharp
-        m_MethodName: ApplyFeature
+      - m_Target: {fileID: 247842200}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: EnableNextFeature
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -918,19 +919,6 @@ RectTransform:
   m_AnchoredPosition: {x: -541, y: 243}
   m_SizeDelta: {x: 781.889, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1323202083
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1323202077}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d36bc128c3cc5ed42b2548c0eaae1f5c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  AddFeatureText: {fileID: 1282191842}
 --- !u!1 &1331782130
 GameObject:
   m_ObjectHideFlags: 0
