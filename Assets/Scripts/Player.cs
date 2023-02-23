@@ -17,6 +17,7 @@ public class Player : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        gameManager = GameManager.Instance;
         maxHealth = 100;
         currentHealth = maxHealth;
         InvokeRepeating("Regen", 0.0f, 1.0f);
@@ -25,8 +26,12 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        gameManager = GameManager.Instance;
-        healthSlider.value = currentHealth;
+        if (GameObject.FindGameObjectWithTag("HealthBar") != null)
+        {
+            healthBar = GameObject.FindGameObjectWithTag("HealthBar");
+            healthSlider = healthBar.GetComponent<Slider>();
+            healthSlider.value = currentHealth;
+        }
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
@@ -37,6 +42,7 @@ public class Player : MonoBehaviour
         {
             currentHealth = 0;
         }
+
         int WeaponIndex = gameManager.GetWeapon();
         switch(WeaponIndex)
         {
@@ -59,7 +65,7 @@ public class Player : MonoBehaviour
         return attack;
     }
 
-    void Regen()
+    void Regen() // Should only run when not in combat
     {
         if (currentHealth < maxHealth)
         {
@@ -67,7 +73,7 @@ public class Player : MonoBehaviour
         }
     }
 
-    void TakeDamage(int damage)
+    public void TakeDamage(int damage) // If health ever reaches 0, return to Map scene
     {
         currentHealth -= damage;
     }
