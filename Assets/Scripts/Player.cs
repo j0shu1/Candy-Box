@@ -25,17 +25,8 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-<<<<<<< HEAD
         gameManager = GameManager.Instance;
         healthSlider.value = currentHealth;
-=======
-        if (GameObject.FindGameObjectWithTag("HealthBar") != null)
-        {
-            healthBar = GameObject.FindGameObjectWithTag("HealthBar");
-            healthSlider = healthBar.GetComponent<Slider>();
-            healthSlider.value = currentHealth;
-        }        
->>>>>>> 217434ec88c4451bdfd30fbc668b4021c74c8678
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
