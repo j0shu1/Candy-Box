@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
@@ -67,15 +68,22 @@ public class Player : MonoBehaviour
 
     void Regen() // Should only run when not in combat
     {
-        if (currentHealth < maxHealth)
+        if (SceneManager.GetActiveScene().buildIndex != 5)
         {
+            if (currentHealth < maxHealth)
+            {
             currentHealth += 1;
+            }
         }
     }
 
-    public void TakeDamage(int damage) // If health ever reaches 0, return to Map scene
+    public void TakeDamage(int damage)
     {
         currentHealth -= damage;
+        if (currentHealth <= 0)
+        {
+            SceneManager.LoadScene(2);
+        }
     }
 
     // WEAPON SELECTION
