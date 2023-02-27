@@ -4,9 +4,11 @@ using UnityEngine;
 
 public class FeatureBar : MonoBehaviour
 {
-    // TODO: Add MakeAddFeatureVisible.cs to this script.
-    // It should also instantiate the button from a prefab instead of making it visible.
-    // See AttachGameObjects()
+    // TODO: Add MakeAddFeatureVisible.cs to this script (if it's possible. It might not be because the FeatureBar object will be disabled.).
+    //       It should also instantiate the button from a prefab instead of making it visible.
+    // TODO: Make a new private variable to hold the text for the addFeatureButton.
+    //       Also make the addFeatureButton a prefab with a script which gets the text and sets it appropriately. 
+
 
     // Feature bar components.
     private GameObject featureBar;
