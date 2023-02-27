@@ -9,14 +9,14 @@ public class Enemy : MonoBehaviour
     public float maxHP;
     public Image HealthBarFill;
     public int attack;
-    //private GameManager gameManager;
+    private GameManager gameManager;
     
     void Start()
     {
         // attack = GameManager.Instance.GetAttack();
-        //  gameManager = GameManager.Instance;
-        //  attack = gameManager.GetAttack();
-        attack = 10;
+        gameManager = GameManager.Instance;
+        attack = (gameManager.GetWeapon() * 10);
+        //attack = 10;
     }
     public void SetEnemyDamage(int damage)
     {
@@ -42,7 +42,7 @@ public class Enemy : MonoBehaviour
         currentHP -= attack;
         HealthBarFill.fillAmount = currentHP / maxHP;
         GameManager.Instance.TakeDamage(10);
-        if (currentHP == 0)
+        if (currentHP <= 0)
         {
             Destroy(gameObject);
         }
