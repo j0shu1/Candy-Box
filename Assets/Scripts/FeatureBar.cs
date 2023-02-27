@@ -56,17 +56,6 @@ public class FeatureBar : MonoBehaviour
         HandleFeatures();
     }
 
-    public void SpawnFeatureBar()
-    {
-        Instantiate(featureBarPrefab);
-        AttachGameObjects();
-        HandleFeatures();
-    }
-
-    public void DeleteFeatureBar()
-    {
-        Destroy(featureBar);
-    }
 
     public void EnableAddFeatureButton()
     {
@@ -152,26 +141,5 @@ public class FeatureBar : MonoBehaviour
         {
             current.SetActive(features[current]);
         }
-    }
-    
-    private void AttachGameObjects()
-    {
-        // TODO:
-        // Get all previous values from features dictionary
-        // Attach vars to new GameObjects by tag
-        // Clear features dictionary
-        // Add each var to features with appropriate bool
-
-
-        featureBar = GameObject.FindGameObjectWithTag("FeatureBar");
-        addFeatureButton = GameObject.FindGameObjectWithTag("AddFeatureButton");
-        addFeatureButtonText = addFeatureButton.GetComponentInChildren<TextMeshProUGUI>();
-
-        // Find and save each component of the FeatureBar to the appropriate variable.
-        saveButton = GameObject.FindGameObjectWithTag("SaveButton");
-        healthBar = GameObject.FindGameObjectWithTag("HealthBar");
-        inventoryButton = GameObject.FindGameObjectWithTag("InventoryButton");
-        farmButton = GameObject.FindGameObjectWithTag("FarmButton");
-        mapButton = GameObject.FindGameObjectWithTag("MapButton");
     }
 }

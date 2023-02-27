@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 /* 
@@ -77,8 +78,6 @@ public class GameManager : MonoBehaviour
     *         do with the FeatureBar.
     *******************************************/
     // Methods that do not return values
-    public void SpawnFeatureBar() { featureBar.SpawnFeatureBar(); }
-    public void DeleteFeatureBar() { featureBar.DeleteFeatureBar(); }
     public void EnableAddFeatureButton() { featureBar.EnableAddFeatureButton(); }
     public void EnableNextFeature() { featureBar.EnableNextFeature(); }
 
