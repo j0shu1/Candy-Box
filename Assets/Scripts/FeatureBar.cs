@@ -114,6 +114,15 @@ public class FeatureBar : MonoBehaviour
                     featureProgress++;
                 }
                 break;
+            case 4:
+                EnableFeature(inventoryButton);
+                featureProgress++;
+                break;
+            case 5:
+                EnableFeature(farmButton);
+                featureProgress++;
+                break;
+
             default:
                 break;
         }
