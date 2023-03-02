@@ -5,6 +5,7 @@ public class HealthBar : MonoBehaviour
     public int currentHealth;
 
     public HealthBar healthBar;
+    public Gradient gradient;
 
     void Start() 
     {
