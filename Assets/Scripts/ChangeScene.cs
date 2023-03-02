@@ -7,5 +7,6 @@ public class ChangeScene : MonoBehaviour
 {
     public void MoveToScene(int sceneID){
         SceneManager.LoadScene(sceneID);
+        SfxManager.sfxInstance.Audio.PlayOneShot(SfxManager.sfxInstance.Click);
     }
 }

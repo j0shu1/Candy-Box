@@ -74,6 +74,7 @@ public class FeatureBar : MonoBehaviour
     /// </summary>
     public void EnableNextFeature()
     {
+        SfxManager.sfxInstance.Audio.PlayOneShot(SfxManager.sfxInstance.Buy);
         switch (featureProgress)
         {
             case 0:
