@@ -82,7 +82,10 @@ public class Player : MonoBehaviour
         currentHealth -= damage;
         if (currentHealth <= 0)
         {
+            BgScript.BgInstance.Audio.clip = BgScript.BgInstance.MusicClips[0];
+            BgScript.BgInstance.Audio.Play(0);
             SceneManager.LoadScene(2);
+            //ChangeScene.MoveToScene(2);
         }
     }
 
