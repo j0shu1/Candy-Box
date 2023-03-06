@@ -42,9 +42,11 @@ public class Enemy : MonoBehaviour
         currentHP -= attack;
         HealthBarFill.fillAmount = currentHP / maxHP;
         GameManager.Instance.TakeDamage(10);
+        SfxManager.sfxInstance.Audio.PlayOneShot(SfxManager.sfxInstance.Attack);
         if (currentHP <= 0)
         {
             Destroy(gameObject);
         }
+
     }    
 }

@@ -82,6 +82,7 @@ public class Player : MonoBehaviour
         currentHealth -= damage;
         if (currentHealth <= 0)
         {
+            SfxManager.sfxInstance.Audio.PlayOneShot(SfxManager.sfxInstance.Die);
             BgScript.BgInstance.Audio.clip = BgScript.BgInstance.MusicClips[0];
             BgScript.BgInstance.Audio.Play(0);
             SceneManager.LoadScene(2);
