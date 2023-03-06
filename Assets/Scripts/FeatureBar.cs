@@ -8,7 +8,7 @@ public class FeatureBar : MonoBehaviour
     //       It should also instantiate the button from a prefab instead of making it visible.
     // TODO: Make a new private variable to hold the text for the addFeatureButton.
     //       Also make the addFeatureButton a prefab with a script which gets the text and sets it appropriately. 
-
+    public static FeatureBar Instance;
 
     // Feature bar components.
     private GameObject featureBar;
@@ -55,6 +55,26 @@ public class FeatureBar : MonoBehaviour
         features.Add(farmButton, false);
         features.Add(mapButton, false);
 
+        HandleFeatures();
+    }
+
+    private void Awake()
+    {
+        if (Instance != null)
+        {
+            Destroy(gameObject);
+            return;
+        }
+        Instance = this;
+        DontDestroyOnLoad(gameObject);
+    }
+
+    public void DebugAddAllFeatures()
+    {
+        for (int i = featureProgress; i < features.Count; i++)
+        {
+            EnableNextFeature();
+        }
         HandleFeatures();
     }
 
@@ -111,6 +131,7 @@ public class FeatureBar : MonoBehaviour
                 {
                     gameManager.SpendCandy(10);
                     EnableFeature(mapButton);
+                    features.Remove(addFeatureButton);
                     Destroy(addFeatureButton);
                     featureProgress++;
                 }

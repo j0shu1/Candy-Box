@@ -78,6 +78,7 @@ public class GameManager : MonoBehaviour
     *         do with the FeatureBar.
     *******************************************/
     // Methods that do not return values
+    public void DebugEnableAllFeatures() { featureBar.DebugAddAllFeatures(); }
     public void EnableAddFeatureButton() { featureBar.EnableAddFeatureButton(); }
     public void EnableNextFeature() { featureBar.EnableNextFeature(); }
 

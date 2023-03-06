@@ -799,9 +799,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Debug
-
-'
+  m_text: Debug (Add all features)
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1391,6 +1389,7 @@ GameObject:
   - component: {fileID: 1323202081}
   - component: {fileID: 1323202080}
   - component: {fileID: 1323202079}
+  - component: {fileID: 1323202083}
   m_Layer: 5
   m_Name: Add feature button
   m_TagString: AddFeatureButton
@@ -1513,6 +1512,18 @@ RectTransform:
   m_AnchoredPosition: {x: -541, y: 243}
   m_SizeDelta: {x: 781.889, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1323202083
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1323202077}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82c7cd2779133c441baa5dd64b51e4f9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1331782130
 GameObject:
   m_ObjectHideFlags: 0
@@ -2119,8 +2130,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -541, y: 142}
-  m_SizeDelta: {x: 160, y: 30}
+  m_AnchoredPosition: {x: -660.7992, y: 142}
+  m_SizeDelta: {x: 399.598, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2106412832
 MonoBehaviour:
@@ -2168,7 +2179,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 247842200}
         m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-        m_MethodName: EnableNextFeature
+        m_MethodName: DebugEnableAllFeatures
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
