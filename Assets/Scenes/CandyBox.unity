@@ -1023,6 +1023,7 @@ MonoBehaviour:
   Click: {fileID: 8300000, guid: ea97c9a58b568c24391e32ae634acaa8, type: 3}
   Buy: {fileID: 8300000, guid: 83b8f7e9a4c957548a6ea0f3ef11dc59, type: 3}
   Attack: {fileID: 8300000, guid: f3aebff15a2971c49bac005a7bc5bc9b, type: 3}
+  Die: {fileID: 8300000, guid: c8f3561a7f6c24a459b0a0f34fd4e013, type: 3}
 --- !u!1 &743044184
 GameObject:
   m_ObjectHideFlags: 0
