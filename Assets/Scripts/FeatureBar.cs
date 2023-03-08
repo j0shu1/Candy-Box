@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class FeatureBar : MonoBehaviour
 {
@@ -8,7 +9,7 @@ public class FeatureBar : MonoBehaviour
     //       It should also instantiate the button from a prefab instead of making it visible.
     // TODO: Make a new private variable to hold the text for the addFeatureButton.
     //       Also make the addFeatureButton a prefab with a script which gets the text and sets it appropriately. 
-    public static FeatureBar Instance;
+    public GameObject addFeatureButtonPrefab;
 
     // Feature bar components.
     private GameObject featureBar;
@@ -23,22 +24,22 @@ public class FeatureBar : MonoBehaviour
     private Dictionary<GameObject, bool> features = new Dictionary<GameObject, bool>();
 
     // Purchase button components.
+    private int featureCost = 30;
     private int candyCount;
-    private int featureCost;
+    private string addFeatureString = "Request a new feature from the developer (30 candies)";
+    private Button addButton;
 
     public GameObject featureBarPrefab;
 
     // Internal components
     private GameManager gameManager;
-    private int featureProgress;
+    private static int featureProgress = 0;
 
     void Start()
     {
         gameManager = GameManager.Instance;
 
         featureBar = GameObject.FindGameObjectWithTag("FeatureBar");
-        addFeatureButton = GameObject.FindGameObjectWithTag("AddFeatureButton");
-        addFeatureButtonText = addFeatureButton.GetComponentInChildren<TextMeshProUGUI>();
 
         // Find and save each component of the FeatureBar to the appropriate variable.
         saveButton = GameObject.FindGameObjectWithTag("SaveButton");
@@ -48,7 +49,6 @@ public class FeatureBar : MonoBehaviour
         mapButton = GameObject.FindGameObjectWithTag("MapButton");
 
         features.Add(featureBar, false);
-        features.Add(addFeatureButton, false);
         features.Add(saveButton, false);
         features.Add(healthBar, false);
         features.Add(inventoryButton, false);
@@ -60,14 +60,19 @@ public class FeatureBar : MonoBehaviour
 
     private void Awake()
     {
-        if (Instance != null)
+        if (addFeatureButton != null)
         {
-            Destroy(gameObject);
-            return;
+            addFeatureButtonText.text = addFeatureString;
         }
-        Instance = this;
-        DontDestroyOnLoad(gameObject);
+
+        else if (featureProgress < 4)
+        {
+            //Debug.Log($"Progress: {featureProgress}");
+            CreateAddFeatureButton();
+        }
     }
+
+
 
     public void DebugAddAllFeatures()
     {
@@ -78,7 +83,6 @@ public class FeatureBar : MonoBehaviour
         HandleFeatures();
     }
 
-
     public void EnableAddFeatureButton()
     {
         features[addFeatureButton] = true;
@@ -88,6 +92,8 @@ public class FeatureBar : MonoBehaviour
     {
         return featureCost;
     }
+
+    public string GetAddFeatureString() { return addFeatureString; }
 
     /// <summary>
     /// Adds the next feature to the FeatureBar.
@@ -102,7 +108,7 @@ public class FeatureBar : MonoBehaviour
                 {
                     gameManager.SpendCandy(30);
                     EnableFeature(featureBar);
-                    addFeatureButtonText.text = "Request another one (5 candies)";
+                    SetAddFeatureText("Request another one (5 candies)");
                     SetFeatureCost(5);
                     featureProgress++;
                 }
@@ -112,7 +118,7 @@ public class FeatureBar : MonoBehaviour
                 {
                     gameManager.SpendCandy(5);
                     EnableFeature(saveButton);
-                    addFeatureButtonText.text = "Request for something more exciting (5 candies)";
+                    SetAddFeatureText("Request for something more exciting (5 candies)");
                     featureProgress++;
                 }
                 break;
@@ -121,7 +127,7 @@ public class FeatureBar : MonoBehaviour
                 {
                     gameManager.SpendCandy(5);
                     EnableFeature(healthBar);
-                    addFeatureButtonText.text = "Final request! This one has to be worth the candies. (10 candies)";
+                    SetAddFeatureText("Final request! This one has to be worth the candies. (10 candies)");
                     SetFeatureCost(10);
                     featureProgress++;
                 }
@@ -156,6 +162,22 @@ public class FeatureBar : MonoBehaviour
         featureCost = cost;
     }
 
+    private void SetAddFeatureText(string entry)
+    {
+        addFeatureButtonText.text = entry;
+        addFeatureString = entry;
+    }
+
+    private void CreateAddFeatureButton()
+    {
+        addFeatureButton = GameObject.Instantiate(addFeatureButtonPrefab,
+                                                  GameObject.FindGameObjectWithTag("Canvas").transform);
+        features[addFeatureButton] = true;
+        addButton = addFeatureButton.GetComponent<Button>();
+        addButton.onClick.AddListener(EnableNextFeature);
+        addFeatureButtonText = addFeatureButton.GetComponentInChildren<TextMeshProUGUI>();
+        addFeatureButtonText.text = addFeatureString;
+    }
     private void EnableFeature(GameObject feature)
     {
         if (features.ContainsKey(feature))
@@ -165,7 +187,7 @@ public class FeatureBar : MonoBehaviour
         }
         else
         {
-            Debug.Log("EnableFeature() was called on an object not in features Dictionary!");
+            Debug.LogError("EnableFeature() was called on an object not in features Dictionary!");
         }
     }
     private void HandleFeatures()
