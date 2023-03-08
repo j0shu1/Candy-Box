@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using System.Linq;
 using TMPro;
 using UnityEditor;
 using UnityEditorInternal;
@@ -61,13 +60,10 @@ public class FeatureBar : MonoBehaviour
         HandleFeatures();
     }
 
-    private void Awake()
+    void Awake()
     {
         CreateAddFeatureButton();
-        HandleFeatures();
     }
-
-
 
     public void DebugAddAllFeatures()
     {
@@ -171,10 +167,7 @@ public class FeatureBar : MonoBehaviour
 
         addFeatureButton = Instantiate(addFeatureButtonPrefab,
                                        GameObject.FindGameObjectWithTag("Canvas").transform);
-        if (features.ContainsKey(addFeatureButton))
-            features[addFeatureButton] = true;
-        else
-            features.Add(addFeatureButton, true);
+        features.Add(addFeatureButton, true);
 
         addFeatureButtonText = addFeatureButton.GetComponentInChildren<TextMeshProUGUI>();
         addFeatureButtonText.text = addFeatureString;
