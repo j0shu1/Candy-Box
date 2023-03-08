@@ -799,7 +799,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Debug (Add all features)
+  m_text: Debug (Add next feature)
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1823,8 +1823,9 @@ GameObject:
   - component: {fileID: 2106412834}
   - component: {fileID: 2106412833}
   - component: {fileID: 2106412832}
+  - component: {fileID: 2106412835}
   m_Layer: 5
-  m_Name: Button (1)
+  m_Name: DebugButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1895,9 +1896,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 247842200}
-        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-        m_MethodName: DebugEnableAllFeatures
+      - m_Target: {fileID: 2106412835}
+        m_TargetAssemblyTypeName: AddFeatureScript, Assembly-CSharp
+        m_MethodName: EnableNextFeature
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1945,6 +1946,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2106412829}
   m_CullTransparentMesh: 1
+--- !u!114 &2106412835
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2106412829}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f31ada3d388a2e846b65471d858c5f1a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &7761336439125919574
 PrefabInstance:
   m_ObjectHideFlags: 0

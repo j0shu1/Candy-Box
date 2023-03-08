@@ -1,5 +1,8 @@
 using System.Collections.Generic;
+using System.Linq;
 using TMPro;
+using UnityEditor;
+using UnityEditorInternal;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -60,16 +63,8 @@ public class FeatureBar : MonoBehaviour
 
     private void Awake()
     {
-        if (addFeatureButton != null)
-        {
-            addFeatureButtonText.text = addFeatureString;
-        }
-
-        else if (featureProgress < 4)
-        {
-            //Debug.Log($"Progress: {featureProgress}");
-            CreateAddFeatureButton();
-        }
+        CreateAddFeatureButton();
+        HandleFeatures();
     }
 
 
@@ -101,6 +96,7 @@ public class FeatureBar : MonoBehaviour
     public void EnableNextFeature()
     {
         SfxManager.sfxInstance.Audio.PlayOneShot(SfxManager.sfxInstance.Buy);
+        // Debug.Log("Executing enable feature with progress of " + featureProgress);
         switch (featureProgress)
         {
             case 0:
@@ -170,11 +166,16 @@ public class FeatureBar : MonoBehaviour
 
     private void CreateAddFeatureButton()
     {
-        addFeatureButton = GameObject.Instantiate(addFeatureButtonPrefab,
-                                                  GameObject.FindGameObjectWithTag("Canvas").transform);
-        features[addFeatureButton] = true;
-        addButton = addFeatureButton.GetComponent<Button>();
-        addButton.onClick.AddListener(EnableNextFeature);
+        if (featureProgress > 3)
+            return;
+
+        addFeatureButton = Instantiate(addFeatureButtonPrefab,
+                                       GameObject.FindGameObjectWithTag("Canvas").transform);
+        if (features.ContainsKey(addFeatureButton))
+            features[addFeatureButton] = true;
+        else
+            features.Add(addFeatureButton, true);
+
         addFeatureButtonText = addFeatureButton.GetComponentInChildren<TextMeshProUGUI>();
         addFeatureButtonText.text = addFeatureString;
     }
@@ -194,7 +195,14 @@ public class FeatureBar : MonoBehaviour
     {
         foreach (GameObject current in features.Keys)
         {
-            current.SetActive(features[current]);
+            try
+            {
+                current.SetActive(features[current]);
+            }
+            catch
+            { 
+                addFeatureButton = GameObject.FindGameObjectWithTag("FeatureBar");
+            }
         }
     }
 }
