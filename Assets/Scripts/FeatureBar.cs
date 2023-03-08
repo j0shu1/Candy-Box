@@ -26,7 +26,7 @@ public class FeatureBar : MonoBehaviour
     // Purchase button components.
     private int featureCost = 30;
     private int candyCount;
-    private string addFeatureString = "Request a new feature from the developer (30 candies)";
+    private static string addFeatureString = "Request a new feature from the developer (30 candies)";
     private Button addButton;
 
     public GameObject featureBarPrefab;
