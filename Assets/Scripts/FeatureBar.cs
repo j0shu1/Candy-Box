@@ -65,25 +65,12 @@ public class FeatureBar : MonoBehaviour
         CreateAddFeatureButton();
     }
 
-    public void DebugAddAllFeatures()
-    {
-        for (int i = featureProgress; i < features.Count; i++)
-        {
-            EnableNextFeature();
-        }
-        HandleFeatures();
-    }
-
     public void EnableAddFeatureButton()
     {
         features[addFeatureButton] = true;
         HandleFeatures();
     }
-    public int GetFeatureCost()
-    {
-        return featureCost;
-    }
-
+    public int GetFeatureCost(){ return featureCost; }
     public string GetAddFeatureString() { return addFeatureString; }
 
     /// <summary>
@@ -92,7 +79,6 @@ public class FeatureBar : MonoBehaviour
     public void EnableNextFeature()
     {
         SfxManager.sfxInstance.Audio.PlayOneShot(SfxManager.sfxInstance.Buy);
-        // Debug.Log("Executing enable feature with progress of " + featureProgress);
         switch (featureProgress)
         {
             case 0:
@@ -131,6 +117,8 @@ public class FeatureBar : MonoBehaviour
                     EnableFeature(mapButton);
                     features.Remove(addFeatureButton);
                     Destroy(addFeatureButton);
+                    HandleFeatures();
+                    featureBar = Instantiate(featureBarPrefab);
                     featureProgress++;
                 }
                 break;
@@ -164,6 +152,7 @@ public class FeatureBar : MonoBehaviour
     {
         if (featureProgress > 3)
             return;
+
 
         addFeatureButton = Instantiate(addFeatureButtonPrefab,
                                        GameObject.FindGameObjectWithTag("Canvas").transform);
