@@ -21,7 +21,7 @@ public class HealthBar : MonoBehaviour
         {
             TakeDamage(1);
         }
-        if (filledBar.color = gradient.Evaluate(filledbar, fillAmount));
+
 
     }
 
