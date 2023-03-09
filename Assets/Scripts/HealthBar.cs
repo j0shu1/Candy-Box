@@ -4,25 +4,33 @@ public class HealthBar : MonoBehaviour
     public int maxHealth = 100;
     public int currentHealth;
 
+
     public HealthBar healthBar;
     public Gradient gradient;
 
-    void Start() 
+
+    void Start()
     {
         currentHealth = maxHealth;
     }
 
-    void Update() 
+
+    void Update()
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
             TakeDamage(1);
         }
+        if (filledBar.color = gradient.Evaluate(filledbar, fillAmount));
+
     }
+
 
     void TakeDamage(int damage)
     {
         currentHealth -= damage;
+
+
 
 
     }
