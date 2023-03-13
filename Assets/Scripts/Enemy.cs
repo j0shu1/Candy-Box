@@ -26,7 +26,7 @@ public class Enemy : MonoBehaviour
     void Update()
     {
         // Move to the left
-        GetComponent<Rigidbody2D>().velocity = new Vector2(-30, 0);
+        //GetComponent<Rigidbody2D>().velocity = new Vector2(0, 0);
     }
     
     void OnCollisionEnter2D(Collision2D collision)
