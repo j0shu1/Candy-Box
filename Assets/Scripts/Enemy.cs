@@ -9,7 +9,9 @@ public class Enemy : MonoBehaviour
     public float maxHP;
     public Image HealthBarFill;
     public int attack;
+    public int bountyVal;
     private GameManager gameManager;
+
     
     void Start()
     {
@@ -17,6 +19,7 @@ public class Enemy : MonoBehaviour
         gameManager = GameManager.Instance;
         attack = (gameManager.GetWeapon() * 10);
         //attack = 10;
+        bountyVal =  Random.Range(bountyVal*10,bountyVal*20);
     }
     public void SetEnemyDamage(int damage)
     {
@@ -45,6 +48,8 @@ public class Enemy : MonoBehaviour
         SfxManager.sfxInstance.Audio.PlayOneShot(SfxManager.sfxInstance.Attack);
         if (currentHP <= 0)
         {
+            //MainMangager.Instance.AddTempWealth(bountyVal);
+            //MainMangager.Instance.DisplayGivenWealth(bountyVal);
             Destroy(gameObject);
         }
 

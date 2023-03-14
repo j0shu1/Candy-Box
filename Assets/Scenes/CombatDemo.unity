@@ -785,6 +785,7 @@ MonoBehaviour:
   maxHP: 100
   HealthBarFill: {fileID: 2020269693}
   attack: 20
+  bountyVal: 1
 --- !u!1 &801873779
 GameObject:
   m_ObjectHideFlags: 0
