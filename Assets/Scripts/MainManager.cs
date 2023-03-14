@@ -3,8 +3,6 @@ using UnityEngine;
 public class MainManager : MonoBehaviour
 {
     public static MainManager Instance;
-
-    public int playerCandy;
     
     private void Awake()
     {

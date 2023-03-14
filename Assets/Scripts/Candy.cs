@@ -46,6 +46,14 @@ public class Candy : MonoBehaviour
     {
         candy -= amount;
     }
+
+    public void AddCandies(int amount)
+    {
+        if (amount > 0)
+            candy += amount;
+        else
+            Debug.LogError("Tried to add negative or zero candies to candies.");
+    }
     
     // PRIVATE METHODS
 
