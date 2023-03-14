@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class CombatPlayer : MonoBehaviour
 {
@@ -17,9 +18,13 @@ public class CombatPlayer : MonoBehaviour
     }
     void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.ToString() == "Enemy (UnityEngine.GameObject)")
+        if (collision.gameObject.ToString() == "Win (UnityEngine.GameObject)")
         {
-           this.GetComponent<Rigidbody2D>().velocity = new Vector2(0, 0);
+            this.GetComponent<Rigidbody2D>().velocity = new Vector2(0, 0);
+            SfxManager.sfxInstance.Audio.PlayOneShot(SfxManager.sfxInstance.Die);
+            BgScript.BgInstance.Audio.clip = BgScript.BgInstance.MusicClips[0];
+            BgScript.BgInstance.Audio.Play(0);
+            SceneManager.LoadScene(2);
         }
     }
 }
