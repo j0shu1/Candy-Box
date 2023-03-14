@@ -11,6 +11,7 @@ public class Enemy : MonoBehaviour
     public int attack;
     public int bountyVal;
     private GameManager gameManager;
+    private CombatManager combatManager;
 
     
     void Start()
@@ -48,7 +49,8 @@ public class Enemy : MonoBehaviour
         SfxManager.sfxInstance.Audio.PlayOneShot(SfxManager.sfxInstance.Attack);
         if (currentHP <= 0)
         {
-            //MainMangager.Instance.AddTempWealth(bountyVal);
+            //var ComBoy = combatManager.GetComponent<BattleLog>();
+            //ComBoy.AddLine();
             //MainMangager.Instance.DisplayGivenWealth(bountyVal);
             Destroy(gameObject);
         }
