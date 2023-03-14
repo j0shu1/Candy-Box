@@ -1072,6 +1072,7 @@ MonoBehaviour:
   HealthBarFill: {fileID: 2020269693}
   attack: 20
   bountyVal: 1
+  combatManager: {fileID: 506671616}
 --- !u!1 &801873779
 GameObject:
   m_ObjectHideFlags: 0

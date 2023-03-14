@@ -68,6 +68,7 @@ public class GameManager : MonoBehaviour
 
     // Methods that return values
     public int GetWeapon() { return player.GetWeapon(); }
+    public int GetHealth() { return player.GetHealth(); }
 
 
 

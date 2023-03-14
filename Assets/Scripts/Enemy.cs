@@ -11,7 +11,7 @@ public class Enemy : MonoBehaviour
     public int attack;
     public int bountyVal;
     private GameManager gameManager;
-    private CombatManager combatManager;
+    public CombatManager combatManager;
 
     
     void Start()
@@ -45,13 +45,17 @@ public class Enemy : MonoBehaviour
     {
         currentHP -= attack;
         HealthBarFill.fillAmount = currentHP / maxHP;
-        GameManager.Instance.TakeDamage(10);
+        int PlayerHealth = GameManager.Instance.GetHealth();
+        if (PlayerHealth < attack){
+            //combatManager.GetComponent<BattleLog>().DeleteBounty();
+        }
+        
+        GameManager.Instance.TakeDamage(attack);
         SfxManager.sfxInstance.Audio.PlayOneShot(SfxManager.sfxInstance.Attack);
         if (currentHP <= 0)
         {
-            //var ComBoy = combatManager.GetComponent<BattleLog>();
-            //ComBoy.AddLine();
-            //MainMangager.Instance.DisplayGivenWealth(bountyVal);
+            combatManager.GetComponent<BattleLog>().AddLine(); //Add bounty to accumulated candies
+            //combatManager.GetComponent<BattleLog>().DisplayGivenWealth(bountyVal); //display new kill text
             Destroy(gameObject);
         }
 

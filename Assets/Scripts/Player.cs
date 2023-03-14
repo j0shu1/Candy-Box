@@ -12,6 +12,7 @@ public class Player : MonoBehaviour
     public Slider healthSlider;
     private GameManager gameManager;
     
+    
     private int attack = 10; // Just a default value
     private int weaponSelection = 0; //default weapon selected
     
@@ -66,6 +67,11 @@ public class Player : MonoBehaviour
         return attack;
     }
 
+    public int GetHealth()
+    {
+        return currentHealth;
+    }
+
     void Regen() // Should only run when not in combat
     {
         if (SceneManager.GetActiveScene().buildIndex != 5)
@@ -82,12 +88,10 @@ public class Player : MonoBehaviour
         currentHealth -= damage;
         if (currentHealth <= 0)
         {
-            //MainMangager.Instance.RemoveWealth();
             SfxManager.sfxInstance.Audio.PlayOneShot(SfxManager.sfxInstance.Die);
             BgScript.BgInstance.Audio.clip = BgScript.BgInstance.MusicClips[0];
             BgScript.BgInstance.Audio.Play(0);
             SceneManager.LoadScene(2);
-            //ChangeScene.MoveToScene(2);
         }
     }
 
