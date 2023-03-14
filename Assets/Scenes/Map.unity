@@ -442,6 +442,7 @@ GameObject:
   - component: {fileID: 955375811}
   - component: {fileID: 955375810}
   - component: {fileID: 955375809}
+  - component: {fileID: 955375812}
   m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
@@ -513,7 +514,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 955375810}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 955375812}
+        m_TargetAssemblyTypeName: AddFeatureScript, Assembly-CSharp
+        m_MethodName: EnableNextFeature
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &955375810
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -552,6 +565,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 955375806}
   m_CullTransparentMesh: 1
+--- !u!114 &955375812
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 955375806}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f31ada3d388a2e846b65471d858c5f1a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1024671192
 GameObject:
   m_ObjectHideFlags: 0
