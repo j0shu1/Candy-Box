@@ -6,21 +6,21 @@ public class BattleLog : MonoBehaviour
 {
     public TextMeshProUGUI battleLog;
 
-    private int counter = 0;
+    private int points = 0;
     private Queue<string> logs = new Queue<string>();
 
-    public void AddLine()
+    public void AddLine(string line, int points = 0)
     {
-        counter++;
+        this.points += points;
 
         if (logs.Count > 4)
         {
-            logs.Enqueue($"Added line {counter}");
+            logs.Enqueue(line);
             logs.Dequeue();
         }
         else
         {
-            logs.Enqueue($"Added line {counter}");
+            logs.Enqueue(line);
         }
 
         battleLog.text = string.Join("\n", Reverse(logs));
