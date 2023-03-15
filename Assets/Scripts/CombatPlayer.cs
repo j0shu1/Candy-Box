@@ -5,6 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class CombatPlayer : MonoBehaviour
 {
+    
+    public CombatManager combatManager;
     // Start is called before the first frame update
     void Start()
     {
@@ -20,6 +22,9 @@ public class CombatPlayer : MonoBehaviour
     {
         if (collision.gameObject.ToString() == "Win (UnityEngine.GameObject)")
         {
+            gameManager = GameManager.Instance;
+            gameManager.AddCandies(combatManager.GetComponent<BattleLog>().GetWinReward()); //secds player accumulated rewards
+
             this.GetComponent<Rigidbody2D>().velocity = new Vector2(0, 0);
             SfxManager.sfxInstance.Audio.PlayOneShot(SfxManager.sfxInstance.Die);
             BgScript.BgInstance.Audio.clip = BgScript.BgInstance.MusicClips[0];
