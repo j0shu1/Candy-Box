@@ -7,6 +7,7 @@ public class CombatPlayer : MonoBehaviour
 {
     
     public CombatManager combatManager;
+    private GameManager gameManager;
     // Start is called before the first frame update
     void Start()
     {
@@ -23,6 +24,7 @@ public class CombatPlayer : MonoBehaviour
         if (collision.gameObject.ToString() == "Win (UnityEngine.GameObject)")
         {
             gameManager = GameManager.Instance;
+            
             gameManager.AddCandies(combatManager.GetComponent<BattleLog>().GetWinReward()); //secds player accumulated rewards
 
             this.GetComponent<Rigidbody2D>().velocity = new Vector2(0, 0);
