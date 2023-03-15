@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using System.Net.NetworkInformation;
 using TMPro;
 using UnityEngine;
 
@@ -33,9 +32,14 @@ public class BattleLog : MonoBehaviour
     public int GetWinReward()
     {
         int pointsEarned = points;
-        points = 0;
+        ResetPoints();
 
         return pointsEarned;
+    }
+
+    public void ResetPoints()
+    {
+        points = 0;
     }
 
     private Queue<string> Reverse(Queue<string> queue)

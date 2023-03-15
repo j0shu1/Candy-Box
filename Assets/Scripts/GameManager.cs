@@ -49,6 +49,7 @@ public class GameManager : MonoBehaviour
     public void SpendCandy(int amount) { candy.SpendCandy(amount); }
     public void ResetCandy() { candy.ResetCandy(); }
     public void EatCandies() { candy.EatCandies(); }
+    public void AddCandies(int candies) { candy.AddCandies(candies); }
 
     // Methods that return values
     public int GetCandy() { return candy.GetCandy(); }
