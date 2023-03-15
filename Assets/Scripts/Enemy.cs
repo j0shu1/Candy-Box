@@ -45,16 +45,16 @@ public class Enemy : MonoBehaviour
     {
         currentHP -= attack;
         HealthBarFill.fillAmount = currentHP / maxHP;
-        int PlayerHealth = GameManager.Instance.GetHealth();
+        int PlayerHealth = gameManager.GetHealth();
         if (PlayerHealth < attack){
             //combatManager.GetComponent<BattleLog>().DeleteBounty();
         }
         
-        GameManager.Instance.TakeDamage(attack);
+        gameManager.TakeDamage(attack);
         SfxManager.sfxInstance.Audio.PlayOneShot(SfxManager.sfxInstance.Attack);
         if (currentHP <= 0)
         {
-            combatManager.GetComponent<BattleLog>().AddLine(); //Add bounty to accumulated candies
+            combatManager.GetComponent<BattleLog>().AddLine($"Killed enemy. You collected {bountyVal} candies.", bountyVal); //Add bounty to accumulated candies
             //combatManager.GetComponent<BattleLog>().DisplayGivenWealth(bountyVal); //display new kill text
             Destroy(gameObject);
         }

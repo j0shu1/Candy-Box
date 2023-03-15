@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Net.NetworkInformation;
 using TMPro;
 using UnityEngine;
 
@@ -24,6 +25,17 @@ public class BattleLog : MonoBehaviour
         }
 
         battleLog.text = string.Join("\n", Reverse(logs));
+    }
+    /// <summary>
+    /// Resets internal points and returns reward for winning combat.
+    /// </summary>
+    /// <returns>An int representing candies won in combat.</returns>
+    public int GetWinReward()
+    {
+        int pointsEarned = points;
+        points = 0;
+
+        return pointsEarned;
     }
 
     private Queue<string> Reverse(Queue<string> queue)
