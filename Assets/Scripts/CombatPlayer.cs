@@ -27,6 +27,11 @@ public class CombatPlayer : MonoBehaviour
             
             gameManager.AddCandies(combatManager.GetComponent<BattleLog>().GetWinReward()); //secds player accumulated rewards
 
+
+            //if in basement, enable new map scene button
+            //if in desert, enable final scene button
+            //if in final, end game screen
+
             this.GetComponent<Rigidbody2D>().velocity = new Vector2(0, 0);
             SfxManager.sfxInstance.Audio.PlayOneShot(SfxManager.sfxInstance.Die);
             BgScript.BgInstance.Audio.clip = BgScript.BgInstance.MusicClips[0];
