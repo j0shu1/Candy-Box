@@ -17,7 +17,7 @@ public class CombatPlayer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        this.GetComponent<Rigidbody2D>().velocity = new Vector2(30, 0);
+        this.GetComponent<Rigidbody2D>().velocity = new Vector2(60, 0);
     }
     void OnCollisionEnter2D(Collision2D collision)
     {
