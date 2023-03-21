@@ -55,7 +55,8 @@ public class Enemy : MonoBehaviour
         SfxManager.sfxInstance.Audio.PlayOneShot(SfxManager.sfxInstance.Attack);
         if (currentHP <= 0)
         {
-            combatManager.GetComponent<BattleLog>().AddLine($"Killed enemy. You collected {bountyVal} candies.", bountyVal); //Add bounty to accumulated candies
+            BattleLog battleLog = combatManager.GetComponent<BattleLog>();
+            battleLog.AddLine($"Killed enemy. You collected {bountyVal} candies.\t\t(Total earned: {battleLog.GetPoints()})", bountyVal); //Add bounty to accumulated candies
             
             Destroy(gameObject);
         }

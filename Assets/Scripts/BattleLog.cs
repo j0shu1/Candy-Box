@@ -37,6 +37,8 @@ public class BattleLog : MonoBehaviour
         return pointsEarned;
     }
 
+    public int GetPoints() { return points; }
+
     public void ResetPoints()
     {
         points = 0;
