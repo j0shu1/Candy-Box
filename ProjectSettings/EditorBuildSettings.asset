@@ -14,9 +14,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Map.unity
     guid: 863f9368793944c9a81423fb0a250b81
-  - enabled: 0
-    path: Assets/Scenes/Lollipop Farm.unity
-    guid: 9f01d6ff586c8443eb9e85ca24c15d43
   - enabled: 1
     path: Assets/Scenes/Save.unity
     guid: 99fbbbded51534b4898fe12a88a62302

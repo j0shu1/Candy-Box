@@ -56,7 +56,7 @@ public class Enemy : MonoBehaviour
         if (currentHP <= 0)
         {
             BattleLog battleLog = combatManager.GetComponent<BattleLog>();
-            battleLog.AddLine($"Killed enemy. You collected {bountyVal} candies.\t\t(Total earned: {battleLog.GetPoints()})", bountyVal); //Add bounty to accumulated candies
+            battleLog.AddLine($"Killed enemy. You collected {bountyVal} candies.\t(Total earned: {battleLog.GetPoints() + bountyVal})", bountyVal); //Add bounty to accumulated candies
             
             Destroy(gameObject);
         }
