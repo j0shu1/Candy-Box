@@ -16,7 +16,6 @@ public class FeatureBar : MonoBehaviour
     private GameObject saveButton;
     private GameObject healthBar;
     private GameObject inventoryButton;
-    private GameObject farmButton;
     private GameObject mapButton;
     private TextMeshProUGUI addFeatureButtonText;
 
@@ -42,14 +41,12 @@ public class FeatureBar : MonoBehaviour
         saveButton = GameObject.FindGameObjectWithTag("SaveButton");
         healthBar = GameObject.FindGameObjectWithTag("HealthBar");
         inventoryButton = GameObject.FindGameObjectWithTag("InventoryButton");
-        farmButton = GameObject.FindGameObjectWithTag("FarmButton");
         mapButton = GameObject.FindGameObjectWithTag("MapButton");
 
         features.Add(featureBar, false);
         features.Add(saveButton, false);
         features.Add(healthBar, false);
         features.Add(inventoryButton, false);
-        features.Add(farmButton, false);
         features.Add(mapButton, false);
 
         HandleFeatures();
@@ -118,10 +115,6 @@ public class FeatureBar : MonoBehaviour
                 break;
             case 4:
                 EnableFeature(inventoryButton);
-                featureProgress++;
-                break;
-            case 5:
-                EnableFeature(farmButton);
                 featureProgress++;
                 break;
 
