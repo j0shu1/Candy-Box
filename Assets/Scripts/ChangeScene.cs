@@ -7,29 +7,48 @@ public class ChangeScene : MonoBehaviour
 {
     public void MoveToScene(int sceneID){
         //Switch Scene
-        SceneManager.LoadScene(sceneID);
+        //SceneManager.LoadScene(sceneID);
         //Make click sound when switching scenes
         SfxManager.sfxInstance.Audio.PlayOneShot(SfxManager.sfxInstance.Click);
-
+        
         //Switch the background music
         AudioSource source = new AudioSource(); 
         if(BgScript.BgInstance.Audio.clip == BgScript.BgInstance.MusicClips[0]) //detects if current music is wrong
         {
-            if(sceneID == 5) //if the scene is switched to attack scene
+            if(sceneID == 4) //if the scene is switched to attack scene
             {            //stop music, set new music, play music
                 BgScript.BgInstance.Audio.Stop(); 
                 BgScript.BgInstance.Audio.clip = BgScript.BgInstance.MusicClips[1];
                 BgScript.BgInstance.Audio.Play(0);
             }
+            else {
+                if(sceneID == 6) //if the scene is switched to attack scene
+                {            //stop music, set new music, play music
+                    BgScript.BgInstance.Audio.Stop(); 
+                    BgScript.BgInstance.Audio.clip = BgScript.BgInstance.MusicClips[1];
+                    BgScript.BgInstance.Audio.Play(0);
+                }
+                else{
+                    if(sceneID == 7) //if the scene is switched to attack scene
+                    {            //stop music, set new music, play music
+                        BgScript.BgInstance.Audio.Stop(); 
+                        BgScript.BgInstance.Audio.clip = BgScript.BgInstance.MusicClips[1];
+                        BgScript.BgInstance.Audio.Play(0);
+                    }
+                }
+            }
         }
-        if(BgScript.BgInstance.Audio.clip == BgScript.BgInstance.MusicClips[1]) //detects if current music is wrong
+        else if(BgScript.BgInstance.Audio.clip == BgScript.BgInstance.MusicClips[1]) //detects if current music is wrong
         {
-            if(sceneID != 5)//if the scene is switched from attack scene
+            
+            if(sceneID != 4)//if the scene is switched from attack scene
             {           //stop music, set new music, play music
                 BgScript.BgInstance.Audio.Stop();
                 BgScript.BgInstance.Audio.clip = BgScript.BgInstance.MusicClips[0];
                 BgScript.BgInstance.Audio.Play(0);
             }
+            
         }
+        SceneManager.LoadScene(sceneID);
     }
 }
