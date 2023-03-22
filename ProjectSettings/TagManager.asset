@@ -15,6 +15,7 @@ TagManager:
   - CandyBoxButton
   - HealthBar
   - Canvas
+  - BuyWeaponButton
   layers:
   - Default
   - TransparentFX

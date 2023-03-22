@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using UnityEngine;
 
 /* 
@@ -16,7 +15,8 @@ public class GameManager : MonoBehaviour
     private FeatureBar featureBar;
 
     public bool EatCandyScript; // Unsure if this is the best way to keep the EatCandy button visible despite scene changes
-
+    
+    private bool WeaponButtonActive = false;
     private void Awake()
     {
         if (Instance != null)
@@ -30,12 +30,6 @@ public class GameManager : MonoBehaviour
         player = gameObject.GetComponent<Player>();
         candy = gameObject.GetComponent<Candy>();
         featureBar = gameObject.GetComponent<FeatureBar>();
-    }
-
-    // Start is called before the first frame update
-    void Start()
-    {
-
     }
 
     // *********   PUBLIC METHODS     **********
@@ -85,4 +79,14 @@ public class GameManager : MonoBehaviour
 
     // Methods that return values
     public int GetFeatureCost() { return featureBar.GetFeatureCost(); }
+
+    /*******************************************
+    *           BUYWEAPON METHODS
+    *         Controls everything to
+    *         do with buying weapons.
+    *******************************************/
+    // Methods that do not return values
+    public bool GetWeaponBuy() { return WeaponButtonActive; }
+    // Methods that do not return values
+    public void SetWeaponBuy(bool status) { WeaponButtonActive = status; }
 }
