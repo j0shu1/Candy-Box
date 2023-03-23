@@ -16,7 +16,7 @@ public class GameManager : MonoBehaviour
 
     public bool EatCandyScript; // Unsure if this is the best way to keep the EatCandy button visible despite scene changes
     
-    private bool WeaponButtonActive = false;
+    private bool WeaponButtonActive = true;
     private void Awake()
     {
         if (Instance != null)

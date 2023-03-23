@@ -22,7 +22,7 @@ public class FeatureBar : MonoBehaviour
     private Dictionary<GameObject, bool> features = new Dictionary<GameObject, bool>();
 
     // Purchase button components.
-    private int featureCost = 30;
+    private static int featureCost = 30;
     private static string addFeatureString = "Request a new feature from the developer (30 candies)";
 
     public GameObject featureBarPrefab;

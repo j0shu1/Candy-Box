@@ -29,4 +29,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/BridgeScene.unity
     guid: 7bef1c536cfbb4777acc9562d87106e1
+  - enabled: 1
+    path: Assets/Scenes/Forge.unity
+    guid: e02ce706cd45e3a4f86796c1d221b983
   m_configObjects: {}

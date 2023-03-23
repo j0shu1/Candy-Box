@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3752610473853685252}
   - component: {fileID: 3752610473853685259}
   - component: {fileID: 3752610473853685258}
+  - component: {fileID: 4974852404628103407}
   m_Layer: 5
   m_Name: Buy weapon
   m_TagString: BuyWeaponButton
@@ -121,7 +122,31 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 3752610473853685259}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 4974852404628103407}
+        m_TargetAssemblyTypeName: BuyWeaponButton, Assembly-CSharp
+        m_MethodName: BuyWeapon
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &4974852404628103407
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3752610473853685256}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 344ee658e077e6e40903bd95fc31bd88, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3752610475858201313
 GameObject:
   m_ObjectHideFlags: 0

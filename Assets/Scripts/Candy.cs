@@ -3,7 +3,7 @@ using UnityEngine;
 public class Candy : MonoBehaviour
 {
     public int startingCandy;
-    private int candy; // Might want to make this long in case of integer overflow, but int should suffice
+    public int candy; // Int overflow throws an error because it is checked. See AddCandies() and AddCandy().
     private int totalCandyEaten;
     
     // Start is called before the first frame update
@@ -50,7 +50,7 @@ public class Candy : MonoBehaviour
     public void AddCandies(int amount)
     {
         if (amount > 0)
-            candy += amount;
+            checked { candy += amount; }
         else
             Debug.LogError("Tried to add negative or zero candies to candies.");
     }
@@ -59,6 +59,6 @@ public class Candy : MonoBehaviour
 
     private void AddCandy()
     {
-        candy += 1;
+        checked { candy += 1; }
     }
 }

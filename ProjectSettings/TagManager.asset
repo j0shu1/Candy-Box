@@ -16,6 +16,7 @@ TagManager:
   - HealthBar
   - Canvas
   - BuyWeaponButton
+  - ButtonSpawner
   layers:
   - Default
   - TransparentFX

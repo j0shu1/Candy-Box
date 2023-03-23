@@ -35,11 +35,6 @@ public class Player : MonoBehaviour
             healthSlider.value = currentHealth;
         }
 
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            TakeDamage(10);
-        }
-
         if (currentHealth < 0)
         {
             currentHealth = 0;
