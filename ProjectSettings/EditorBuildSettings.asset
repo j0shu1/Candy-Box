@@ -32,4 +32,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Forge.unity
     guid: e02ce706cd45e3a4f86796c1d221b983
+  - enabled: 1
+    path: Assets/Scenes/End Scene.unity
+    guid: f610c50b14d9b49d8836cd3344535e15
+  - enabled: 1
+    path: Assets/Scenes/House.unity
+    guid: 6ed87dc787e9a477ea3a0a8653785fba
+  - enabled: 1
+    path: Assets/Scenes/Map 2.unity
+    guid: 4186e7fda3fdd4ab59ef7eca90d366a1
   m_configObjects: {}
