@@ -230,7 +230,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd78b12607810794fab4c1937d3a03d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startingCandy: 190
+  startingCandy: 0
   candy: 0
 --- !u!114 &247842203
 MonoBehaviour:
