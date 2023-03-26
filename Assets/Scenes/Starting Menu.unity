@@ -537,9 +537,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Audio: {fileID: 705025434}
   Click: {fileID: 8300000, guid: ea97c9a58b568c24391e32ae634acaa8, type: 3}
-  Buy: {fileID: 8300000, guid: 83b8f7e9a4c957548a6ea0f3ef11dc59, type: 3}
+  Buy: {fileID: 8300000, guid: 7253847de30b127439942fd35cd12e6d, type: 3}
   Attack: {fileID: 8300000, guid: f3aebff15a2971c49bac005a7bc5bc9b, type: 3}
   Die: {fileID: 8300000, guid: c8f3561a7f6c24a459b0a0f34fd4e013, type: 3}
+  Eat: {fileID: 8300000, guid: 6b49c26b106d92a4d977d8454d734c3c, type: 3}
 --- !u!82 &705025434
 AudioSource:
   m_ObjectHideFlags: 0

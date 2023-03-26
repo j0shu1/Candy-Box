@@ -69,7 +69,7 @@ public class Player : MonoBehaviour
 
     void Regen() // Should only run when not in combat
     {
-        if (SceneManager.GetActiveScene().buildIndex != 5)
+        if (SceneManager.GetActiveScene().buildIndex != 4 && SceneManager.GetActiveScene().buildIndex != 6 && SceneManager.GetActiveScene().buildIndex != 7)
         {
             if (currentHealth < maxHealth)
             {

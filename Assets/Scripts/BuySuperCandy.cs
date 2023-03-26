@@ -14,6 +14,7 @@ public class BuySuperCandy : MonoBehaviour
         if (gameManager.CanSpend(30)){
             gameManager.SpendCandy(30);
             gameManager.SetMaxHealth();
+            SfxManager.sfxInstance.Audio.PlayOneShot(SfxManager.sfxInstance.Eat);
         }
     }
 }

@@ -408,8 +408,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c1f2c57100e76245a844f11d27a8e06, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentHP: 50
-  maxHP: 50
+  currentHP: 35
+  maxHP: 35
   HealthBarFill: {fileID: 462066709}
   attack: 5
   PlayerAttack: 0

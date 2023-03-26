@@ -7,8 +7,10 @@ public class SfxManager : MonoBehaviour
     public AudioSource Audio;
     public AudioClip Click; //swap scene
     public AudioClip Buy; //buy something
-    public AudioClip Attack; //buy something
-    public AudioClip Die; //buy something
+    public AudioClip Attack; //attack something
+    public AudioClip Die; //die to something
+    public AudioClip Eat; //eat something
+
     public static SfxManager sfxInstance;
 
     private void Awake()
