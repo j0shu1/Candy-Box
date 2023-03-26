@@ -60,10 +60,12 @@ public class GameManager : MonoBehaviour
     // Methods that do not return values
     public void SetWeapon(int weaponSelection) { player.SetWeapon(weaponSelection); }
     public void TakeDamage(int damage) { player.TakeDamage(damage); }
+    public void SetMaxHealth(){player.SetMaxHealth();}
 
     // Methods that return values
     public int GetWeapon() { return player.GetWeapon(); }
     public int GetHealth() { return player.GetHealth(); }
+    
 
 
 

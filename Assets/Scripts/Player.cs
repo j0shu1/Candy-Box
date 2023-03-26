@@ -99,4 +99,8 @@ public class Player : MonoBehaviour
     {
         return weaponSelection;
     }
+
+    public void SetMaxHealth(){
+        currentHealth = maxHealth;
+    }
 }
