@@ -13,8 +13,8 @@ public class SpawnBuyButton : MonoBehaviour
     private Button buyWeaponButtonButton;
     private TextMeshProUGUI buyWeaponText;
     private static int weaponTier = 0;
-    private static int buyWeaponCost = 150;
-    private static string buyWeaponString = "Buy a wooden sword (150 candies)";
+    private static int buyWeaponCost = 100;
+    private static string buyWeaponString = "Buy a wooden sword (100 candies)";
 
     void Awake()
     {
@@ -49,34 +49,34 @@ public class SpawnBuyButton : MonoBehaviour
         switch (weaponTier)
         {
             case 0:
-                if (gameManager.CanSpend(150))
+                if (gameManager.CanSpend(100))
                 {
-                    gameManager.SpendCandy(150);
+                    gameManager.SpendCandy(100);
                     gameManager.SetWeapon(1);
-                    gameManager.EnableNextFeature();
+                    //gameManager.EnableNextFeature();
 
-                    buyWeaponString = "Buy an iron axe (400 candies)";
-                    buyWeaponCost = 400;
+                    buyWeaponString = "Buy an iron axe (200 candies)";
+                    buyWeaponCost = 200;
                     buyWeaponText.text = buyWeaponString;
                     weaponTier++;
                 }
                 break;
             case 1:
-                if (gameManager.CanSpend(400))
+                if (gameManager.CanSpend(200))
                 {
-                    gameManager.SpendCandy(400);
+                    gameManager.SpendCandy(200);
                     gameManager.SetWeapon(2);
 
-                    buyWeaponString = "Buy a polished silver sword (2 000 candies)";
-                    buyWeaponCost = 2000;
+                    buyWeaponString = "Buy a polished silver sword (450 candies)";
+                    buyWeaponCost = 450;
                     buyWeaponText.text = buyWeaponString;
                     weaponTier++;
                 }
                 break;
             case 2:
-                if (gameManager.CanSpend(2000))
+                if (gameManager.CanSpend(450))
                 {
-                    gameManager.SpendCandy(2000);
+                    gameManager.SpendCandy(450);
                     gameManager.SetWeapon(3);
                     gameManager.SetWeaponBuy(false);
 
