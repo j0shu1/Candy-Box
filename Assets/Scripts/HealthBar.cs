@@ -22,12 +22,13 @@ public class HealthBar : MonoBehaviour
     void Start()
     {
         currentHealth = maxHealth;
+        gameManager = GameManager.Instance;
     }
 
 
     void Update()
     {
-        int PlayerHealthNow = GameManager.Instance.GetHealth();
+        int PlayerHealthNow = gameManager.GetHealth();
         textbox.text = ("Health: " + PlayerHealthNow.ToString() + "/"+ maxHealth.ToString());
         if (Input.GetKeyDown(KeyCode.Space))
         {

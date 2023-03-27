@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -24,19 +25,50 @@ public class CombatPlayer : MonoBehaviour
         if (collision.gameObject.ToString() == "Win (UnityEngine.GameObject)")
         {
             gameManager = GameManager.Instance;
-            
-            gameManager.AddCandies(combatManager.GetComponent<BattleLog>().GetWinReward()); //secds player accumulated rewards
 
+            // give player accumulated rewards
+            gameManager.AddCandies(combatManager.GetComponent<BattleLog>().GetWinReward());
 
-            //if in basement, enable new map scene button
-            //if in desert, enable final scene button
-            //if in final, end game screen
+            int currentScene = SceneManager.GetActiveScene().buildIndex;
 
-            this.GetComponent<Rigidbody2D>().velocity = new Vector2(0, 0);
-            SfxManager.sfxInstance.Audio.PlayOneShot(SfxManager.sfxInstance.Die);
-            BgScript.BgInstance.Audio.clip = BgScript.BgInstance.MusicClips[0];
-            BgScript.BgInstance.Audio.Play(0);
-            SceneManager.LoadScene(2);
+            // Won basement fight
+            if (currentScene == 4)
+            {
+                gameManager.SetNextMapEnabled(true);
+                AfterBattleReset();
+                // Load map scene
+                SceneManager.LoadScene(2);
+            }
+
+            // Won desert fight
+            if (currentScene == 6)
+            {
+                gameManager.SetFinalBossEnabled(true);
+                AfterBattleReset();
+                // Load map scene
+                SceneManager.LoadScene(2);
+            }
+
+            // Won boss fight
+            if (currentScene == 7)
+            {
+                AfterBattleReset();
+                // Load victory scene
+                SceneManager.LoadScene(9);
+            }
+
         }
+
+        
+    }
+    private void AfterBattleReset()
+    {
+        // Reset player velocity
+        this.GetComponent<Rigidbody2D>().velocity = new Vector2(0, 0);
+
+        // Reset music
+        SfxManager.sfxInstance.Audio.PlayOneShot(SfxManager.sfxInstance.Die);
+        BgScript.BgInstance.Audio.clip = BgScript.BgInstance.MusicClips[0];
+        BgScript.BgInstance.Audio.Play(0);
     }
 }

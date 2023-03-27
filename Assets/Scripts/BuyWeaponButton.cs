@@ -10,5 +10,9 @@ public class BuyWeaponButton : MonoBehaviour
         buttonSpawner = GameObject.FindGameObjectWithTag("ButtonSpawner").GetComponent<SpawnBuyButton>();
     }
 
-    public void BuyWeapon() { SfxManager.sfxInstance.Audio.PlayOneShot(SfxManager.sfxInstance.Buy); buttonSpawner.BuyWeapon(); }
+    public void BuyWeapon() 
+    {
+        SfxManager.sfxInstance.Audio.PlayOneShot(SfxManager.sfxInstance.Buy);
+        buttonSpawner.BuyWeapon();
+    }
 }

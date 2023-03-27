@@ -17,6 +17,8 @@ public class GameManager : MonoBehaviour
     public bool EatCandyScript; // Unsure if this is the best way to keep the EatCandy button visible despite scene changes
     
     private bool WeaponButtonActive = true;
+    private bool NextMapButtonActive = false;
+    private bool FinalBossButtonActive = false;
     private void Awake()
     {
         if (Instance != null)
@@ -50,8 +52,6 @@ public class GameManager : MonoBehaviour
     public int GetTotalCandyEaten() { return candy.GetTotalCandyEaten(); }
     public bool CanSpend(int amount) { return candy.CanSpend(amount); }
 
-
-
     /*******************************************
      *           PLAYER METHODS
      *  Makes Player accessible to all!
@@ -65,10 +65,6 @@ public class GameManager : MonoBehaviour
     // Methods that return values
     public int GetWeapon() { return player.GetWeapon(); }
     public int GetHealth() { return player.GetHealth(); }
-    
-
-
-
 
     /*******************************************
     *           FEATUREBAR METHODS
@@ -83,12 +79,16 @@ public class GameManager : MonoBehaviour
     public int GetFeatureCost() { return featureBar.GetFeatureCost(); }
 
     /*******************************************
-    *           BUYWEAPON METHODS
+    *           SPAWNABLE BUTTONS
     *         Controls everything to
-    *         do with buying weapons.
+    *         do with spawning buttons.
     *******************************************/
     // Methods that do not return values
     public bool GetWeaponBuy() { return WeaponButtonActive; }
+    public bool GetNextMapEnabled() { return NextMapButtonActive; }
+    public bool GetFinalBossEnabled() { return FinalBossButtonActive; }
     // Methods that do not return values
     public void SetWeaponBuy(bool status) { WeaponButtonActive = status; }
+    public void SetNextMapEnabled(bool status) {  NextMapButtonActive = status; }
+    public void SetFinalBossEnabled(bool status ) {  FinalBossButtonActive = status; }
 }

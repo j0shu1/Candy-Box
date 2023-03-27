@@ -20,7 +20,8 @@ public class SpawnBuyButton : MonoBehaviour
     {
         gameManager = GameManager.Instance;
 
-        CreateBuyWeaponButton();
+        if (gameManager.GetWeaponBuy())
+            CreateBuyWeaponButton();
     }
 
     private void Update()
@@ -31,10 +32,6 @@ public class SpawnBuyButton : MonoBehaviour
 
     private void CreateBuyWeaponButton()
     {
-        if (gameManager.GetWeaponBuy() == false)
-            return;
-
-
         Instantiate(buyWeaponPrefab, GameObject.FindGameObjectWithTag("Canvas").transform);
         buyWeaponButton = GameObject.FindGameObjectWithTag("BuyWeaponButton");
 

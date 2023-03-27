@@ -428,7 +428,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Begin The ADVENTURE!!!
+  m_text: Begin the adventure!
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -455,8 +455,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 42.77
-  m_fontSizeBase: 42.77
+  m_fontSize: 60.21
+  m_fontSizeBase: 60.21
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -796,8 +796,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 2.569, y: -241.465}
-  m_SizeDelta: {x: 717.392, y: 145.407}
+  m_AnchoredPosition: {x: 2.569, y: -213}
+  m_SizeDelta: {x: 734.88, y: 84.2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1782096560
 GameObject:
@@ -968,8 +968,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 16.02, y: 248.071}
-  m_SizeDelta: {x: 1024.545, y: 302.208}
+  m_AnchoredPosition: {x: 2.569, y: 171}
+  m_SizeDelta: {x: 1428.946, y: 245.373}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &2007084525
 GameObject:
@@ -1007,7 +1007,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_BackGroundColor: {r: 0.2783019, g: 0.5589622, b: 1, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0

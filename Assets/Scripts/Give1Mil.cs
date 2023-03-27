@@ -12,7 +12,7 @@ public class Give1Mil : MonoBehaviour
     {
         
         GameManager.Instance.AddCandies(1000000);
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene(12);
     }
 
     // Update is called once per frame

@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class FeatureBar : MonoBehaviour
 {
@@ -24,6 +25,7 @@ public class FeatureBar : MonoBehaviour
     // Purchase button components.
     private static int featureCost = 30;
     private static string addFeatureString = "Request a new feature from the developer (30 candies)";
+    private static bool addFeatureButtonInitialized = false;
 
     public GameObject featureBarPrefab;
 
@@ -54,7 +56,23 @@ public class FeatureBar : MonoBehaviour
 
     void Awake()
     {
-        CreateAddFeatureButton();
+        if (addFeatureButtonInitialized && featureProgress < 3)
+            CreateAddFeatureButton();
+    }
+
+    void Update()
+    {
+        if (!addFeatureButtonInitialized && gameManager.GetCandy() >= 30)
+        {
+            addFeatureButtonInitialized = true;
+            CreateAddFeatureButton();
+        }
+
+        if (addFeatureButton != null)
+        {
+            // Toggle interactability of addFeatureButton if the user can/can't afford it.
+            addFeatureButton.GetComponent<Button>().interactable = gameManager.GetCandy() >= featureCost;
+        }
     }
 
     public void EnableAddFeatureButton()
@@ -137,10 +155,6 @@ public class FeatureBar : MonoBehaviour
 
     private void CreateAddFeatureButton()
     {
-        if (featureProgress > 3)
-            return;
-
-
         Instantiate(addFeatureButtonPrefab, GameObject.FindGameObjectWithTag("Canvas").transform);
         addFeatureButton = GameObject.FindGameObjectWithTag("AddFeatureButton");
 
